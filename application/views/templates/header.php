@@ -20,8 +20,8 @@
     <div id="menu" class="fas fa-bars"></div>
 
     <nav class="navbar">
-        <a href="home.html">home</a>
-        <a href="destination.html">destination</a>
-        <a href="login.html">login</a>
+        <a href="<?= base_url()?>">home</a>
+        <a href="<?= base_url()?>destination">destination</a>
+        <a href="<?= base_url()?>login">login</a>
     </nav>
 </header>

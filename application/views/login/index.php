@@ -7,7 +7,7 @@
 <section class="contact">
 
 <div class="image">
-    <img src="images/login.svg" alt="">
+    <img src="<?= base_url('assets/images/login.svg')?>" alt="">
 </div>
 
 <form action="">
