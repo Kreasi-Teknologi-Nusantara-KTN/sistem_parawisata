@@ -32,19 +32,31 @@
                 Menu
             </div>
 
-            <!-- Nav Item -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Menu 1</span></a>
+                    <i class="far fa-user-circle"></i>
+                    <span>Akun</span></a>
             </li>
-
 
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Menu 1</span></a>
+                    <i class="fas fa-suitcase-rolling"></i>
+                    <span>Wisata</span></a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Pengelola</span></a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-route"></i>
+                    <span>Saran Pariwisata</span></a>
+            </li>
+            
+            
 
 
             
