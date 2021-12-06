@@ -52,13 +52,38 @@
         'assets/admin/vendor/jquery-easing/jquery.easing.min.js'
     ) ?>"></script>
 
+
+    <script src="<?= base_url(
+        'https://code.jquery.com/jquery-3.5.1.js'
+    ) ?>"></script>
+
+    <script src="<?= base_url(
+        'assets/admin/vendor/DataTables/datatables.min.js'
+    ) ?>"></script>
+    
+    <script src="<?= base_url(
+        'assets/admin/vendor/DataTables/DataTables-1.11.3/js/dataTables.bootstrap4.js'
+    ) ?>"></script>
+    
+<script>
+        $(document).ready(function() {
+    var table = $('#example').DataTable( {
+        
+        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ],
+        dom:
+        "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>"+
+        "<'row'<'col-md-12'tr>>"+
+        "<'row'<'col-md-5'i><'col-md-7'p>>"    
+    } );
+ 
+    table.buttons().container()
+        .appendTo( '#table2_wrapper .col-md-5:eq(0)' );
+        } );
+</script>
+
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets/admin/js/sb-admin-2.min.js') ?>"></script>
 
-    <!-- Page level plugins -->
-    <script src="<?= base_url(
-        'assets/admin/vendor/chart.js/Chart.min.js'
-    ) ?>"></script>
 
 
 </body>

@@ -24,4 +24,9 @@
         'assets/admin/css/sb-admin-2.min.css'
     ) ?>" rel="stylesheet">
 
+        <!-- Custom styles for this page -->
+    <link href="<?= base_url(
+        'assets\admin\vendor\DataTables\datatables.min.css'
+    ) ?>" rel="stylesheet">
+
 </head>
