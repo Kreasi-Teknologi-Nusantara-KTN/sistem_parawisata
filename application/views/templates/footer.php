@@ -1,4 +1,10 @@
-
+<a href="#" class="float">
+<i class="fa fa-envelope my-float"></i>
+</a>
+<div class="label-container">
+<div class="label-text">Chat</div>
+<i class="fa fa-play label-arrow"></i>
+</div>
 <!-- footer section  -->
 
 <section class="footer">
@@ -25,7 +31,7 @@
 </section>
 </div>
 <!-- custom js file link -->
-<script src="<?php echo base_url('assets/js/script.js')?>"></script>
+<script src="<?php echo base_url('assets/js/script.js'); ?>"></script>
 
 </body>
 </html>

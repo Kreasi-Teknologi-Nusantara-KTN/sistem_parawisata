@@ -16,7 +16,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?= base_url('pengelola/index') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard Pengelola</span></a>
             </li>
@@ -34,17 +34,36 @@
                 <a class="nav-link" href="<?= base_url(
                     'pengelola/inf_parawisata'
                 ) ?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-info-circle"></i>
                     <span>Informasi Parawisata</span></a>
             </li>
 
+             <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('pengelola/chat') ?>">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('pengelola/data') ?>">
+                    <i class="fas fa-database"></i>
+                    <span>Data</span></a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(
-                    'pengelola/data_inf'
+                    'pengelola/liveview'
                 ) ?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Data</span></a>
+                    <i class="fas fa-search-location"></i>
+                    <span>Live View</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(
+                    'pengelola/inf_pengumuman'
+                ) ?>">
+                    <i class="fas fa-bell"></i>
+                    <span>Info Pengumuman</span></a>
             </li>
 
 
@@ -95,10 +114,6 @@
                     <a class="dropdown-item" href="#">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Settings
                     </a>
                     <a class="dropdown-item" href="#">
                         <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>

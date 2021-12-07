@@ -13,15 +13,39 @@ class Pengelola extends CI_Controller
     {
         $this->load->view('pengelola/templates/header');
         $this->load->view('pengelola/templates/sidebar');
-        $this->load->view('pengelola/parawisata');
+        $this->load->view('pengelola/inf_parawisata');
         $this->load->view('pengelola/templates/footer');
     }
 
-    public function data_inf()
+    public function chat()
     {
         $this->load->view('pengelola/templates/header');
         $this->load->view('pengelola/templates/sidebar');
-        $this->load->view('pengelola/data_inf');
+        $this->load->view('pengelola/chat');
+        $this->load->view('pengelola/templates/footer');
+    }
+
+    public function data()
+    {
+        $this->load->view('pengelola/templates/header');
+        $this->load->view('pengelola/templates/sidebar');
+        $this->load->view('pengelola/data');
+        $this->load->view('pengelola/templates/footer');
+    }
+
+    public function liveview()
+    {
+        $this->load->view('pengelola/templates/header');
+        $this->load->view('pengelola/templates/sidebar');
+        $this->load->view('pengelola/liveview');
+        $this->load->view('pengelola/templates/footer');
+    }
+
+    public function inf_pengumuman()
+    {
+        $this->load->view('pengelola/templates/header');
+        $this->load->view('pengelola/templates/sidebar');
+        $this->load->view('pengelola/inf_pengumuman');
         $this->load->view('pengelola/templates/footer');
     }
 }
