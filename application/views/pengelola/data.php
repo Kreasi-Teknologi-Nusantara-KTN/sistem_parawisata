@@ -1,6 +1,11 @@
  <!-- Begin Page Content -->
  <div class="container-fluid">
 <!-- Page Heading -->
+
+ <div class="button mb-3">
+      <button class="btn btn-primary">Tambah</button>
+ </div>
+
  <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Data Wisata</h6>
@@ -25,7 +30,10 @@
                 <td>Jalan kebun raya</td>
                 <td>wahana, penginapan</td>
                 <td>Foto</td>
-                <td>button</td>
+                <td>
+                     <button type="button" class="btn btn-primary">View</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
             </tr>
         </tbody>
         <tfoot>

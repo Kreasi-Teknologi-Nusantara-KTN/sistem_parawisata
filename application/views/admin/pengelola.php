@@ -1,6 +1,10 @@
  <!-- Begin Page Content -->
  <div class="container-fluid">
 <!-- Page Heading -->
+ <div class="button mb-3">
+      <button class="btn btn-primary">Tambah</button>
+ </div>
+
  <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Data Pengelola</h6>
