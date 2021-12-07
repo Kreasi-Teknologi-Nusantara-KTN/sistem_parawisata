@@ -25,7 +25,10 @@
                 <td>Jalan kebun raya</td>
                 <td>wahana, penginapan</td>
                 <td>Foto</td>
-                <td>button</td>
+                <td> 
+                    <button type="button" class="btn btn-primary">View</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
             </tr>
         </tbody>
         <tfoot>

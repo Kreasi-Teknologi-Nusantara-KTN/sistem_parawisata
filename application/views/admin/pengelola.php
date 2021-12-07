@@ -25,15 +25,10 @@
                 <td>Laki-laki</td>
                 <td>subang</td>
                 <td>foto</td>
-                <td>button</td>
-            </tr>
-             <tr>
-                <td>2</td>
-                <td>Zaki</td>
-                <td>Laki-laki</td>
-                <td>subang</td>
-                <td>foto</td>
-                <td>button</td>
+                <td>
+                    <button type="button" class="btn btn-primary">View</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
             </tr>
         </tbody>
         <tfoot>
