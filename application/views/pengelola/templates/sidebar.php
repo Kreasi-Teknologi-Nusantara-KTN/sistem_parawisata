@@ -47,7 +47,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('pengelola/data') ?>">
                     <i class="fas fa-database"></i>
-                    <span>Data</span></a>
+                    <span>Data Informasi Realtime</span></a>
             </li>
 
             <li class="nav-item">
