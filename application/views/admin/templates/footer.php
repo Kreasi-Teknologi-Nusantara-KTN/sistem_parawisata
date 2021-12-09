@@ -64,16 +64,7 @@
     <script src="<?= base_url(
         'assets/admin/vendor/DataTables/DataTables-1.11.3/js/dataTables.bootstrap4.js'
     ) ?>"></script>
-    
-<script>
-        $(document).ready(function() {
-    var table = $('#example').DataTable( {
-    } );
- 
-    table.buttons().container()
-        .appendTo( '#table2_wrapper .col-md-5:eq(0)' );
-        } );
-</script>
+
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets/admin/js/sb-admin-2.min.js') ?>"></script>
