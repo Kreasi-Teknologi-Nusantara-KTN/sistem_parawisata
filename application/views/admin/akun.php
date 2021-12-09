@@ -22,9 +22,11 @@
                 <td>Adi</td>
                 <td>Laki-laki</td>
                 <td>subang</td>
-                <td>
-                    <button type="button" class="btn btn-primary">View</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                <td> 
+                    <button type="button" class="btn btn-warning btn-circle mb-2" data-toggle="modal" data-target="#exampleModal">
+                      <i class="fas fa-pen-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-circle mb-2"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>
         </tbody>

@@ -2,9 +2,8 @@
  <div class="container-fluid">
 <!-- Page Heading -->
  <div class="button mb-3">
-      <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#adddataModal">Tambah</button>
- </div>
-
+      <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#adddataModal"><span><i class="fas fa-plus"></i></span> Tambah</button>
+  </div>
  <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Data Pengelola</h6>
@@ -29,9 +28,11 @@
                 <td>Laki-laki</td>
                 <td>subang</td>
                 <td>foto</td>
-                <td>
-                    <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                <td> 
+                    <button type="button" class="btn btn-warning btn-circle mb-2" data-toggle="modal" data-target="#exampleModal">
+                      <i class="fas fa-pen-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-circle mb-2"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>
         </tbody>
