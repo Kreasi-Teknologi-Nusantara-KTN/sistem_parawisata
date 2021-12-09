@@ -2,7 +2,7 @@
  <div class="container-fluid">
 <!-- Page Heading -->
  <div class="button mb-3">
-      <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#adddataModal">Tambah</button>
+      <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#adddataModal"><span><i class="fas fa-plus"></i></span> Tambah</button>
   </div>
  <div class="card shadow mb-4">
   <div class="card-header py-3">
@@ -29,8 +29,13 @@
                 <td>wahana, penginapan</td>
                 <td>Foto</td>
                 <td> 
-                    <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                     <button type="button" class="btn btn-primary btn-circle mb-2">
+                       <i class="fas fa-eye"></i>
+                     </button>
+                    <button type="button" class="btn btn-warning btn-circle mb-2" data-toggle="modal" data-target="#exampleModal">
+                      <i class="fas fa-pen-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-circle mb-2"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>
         </tbody>
