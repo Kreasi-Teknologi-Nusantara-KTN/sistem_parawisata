@@ -25,14 +25,6 @@ class Pengelola extends CI_Controller
         $this->load->view('pengelola/templates/footer');
     }
 
-    public function data()
-    {
-        $this->load->view('pengelola/templates/header');
-        $this->load->view('pengelola/templates/sidebar');
-        $this->load->view('pengelola/data');
-        $this->load->view('pengelola/templates/footer');
-    }
-
     public function liveview()
     {
         $this->load->view('pengelola/templates/header');
