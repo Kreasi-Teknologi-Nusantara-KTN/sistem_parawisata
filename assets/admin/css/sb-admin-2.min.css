@@ -9924,14 +9924,16 @@ a:focus {
   }
 }
 .bg-login-image {
-  background: url(https://source.unsplash.com/K4mSJ7kc0As/600x800);
+  background: url(' ../../images/login.svg');
   background-position: center;
-  background-size: cover;
+  background-size: 300px 300px;
+  background-repeat: no-repeat;
 }
 .bg-register-image {
-  background: url(https://source.unsplash.com/Mv9hjnEUHR4/600x800);
+  background: url('../img/undraw_posting_photo.svg');
   background-position: center;
-  background-size: cover;
+  background-size: 300px 300px;
+  background-repeat: no-repeat;
 }
 .bg-password-image {
   background: url(https://source.unsplash.com/oWTW-jNGl9I/600x800);
@@ -9946,11 +9948,28 @@ form.user .form-control-user {
   border-radius: 10rem;
   padding: 1.5rem 1rem;
 }
+.form-control-select {
+  border-radius: 36px;
+  display: inline-block;
+  overflow: hidden;
+  background: #cccccc;
+  border: 1px solid #cccccc;
+}
+
+.selectBox {
+  font-size: 0.8rem;
+  width: 140px;
+  height: 50px;
+  border: 0px;
+  outline: none;
+}
+
 form.user .btn-user {
   font-size: 0.8rem;
   border-radius: 10rem;
   padding: 0.75rem 1rem;
 }
+
 .btn-google {
   color: #fff;
   background-color: #ea4335;
