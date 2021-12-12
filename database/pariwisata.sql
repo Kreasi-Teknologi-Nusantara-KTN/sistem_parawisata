@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2021 pada 08.23
--- Versi server: 10.4.13-MariaDB
--- Versi PHP: 7.4.8
+-- Waktu pembuatan: 12 Des 2021 pada 13.13
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 7.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,26 +24,62 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `chat`
+-- Struktur dari tabel `role`
 --
 
-CREATE TABLE `chat` (
+CREATE TABLE `role` (
   `id` int(11) NOT NULL,
-  `pengirim` varchar(128) NOT NULL,
-  `penerima` varchar(128) NOT NULL,
-  `chat` text NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `chatTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `nama_role` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `role`
+--
+
+INSERT INTO `role` (`id`, `nama_role`) VALUES
+(1, 'Admin'),
+(2, 'pengelola'),
+(3, 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `jenkel` varchar(128) NOT NULL,
+  `alamat` varchar(128) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` int(11) NOT NULL,
+  `is_active` int(1) NOT NULL,
+  `date_created` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `nama`, `email`, `jenkel`, `alamat`, `password`, `role`, `is_active`, `date_created`) VALUES
+(1, 'admin', 'febriananurokhman@gmail.com', 'laki-laki', 'subang', '$2y$10$5GrURYYk9NmB6YezgyxjL.ticEMbv5/hUxaBpwjAwR/1TOYb4LLdK', 3, 1, 1639204865);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `chat`
+-- Indeks untuk tabel `role`
 --
-ALTER TABLE `chat`
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -51,10 +87,16 @@ ALTER TABLE `chat`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `chat`
+-- AUTO_INCREMENT untuk tabel `role`
 --
-ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
