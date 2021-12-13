@@ -73,13 +73,18 @@
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </button>
-                                <hr>
                             </form>
                             <hr>
                             <div class="text-center">
                                 <a class="small" href="<?= base_url(
                                     'login'
                                 ) ?>">Already have an account? Login!</a>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <a class="small" href="<?= base_url(
+                                    'home'
+                                ) ?>">Home</a>
                             </div>
                         </div>
                     </div>

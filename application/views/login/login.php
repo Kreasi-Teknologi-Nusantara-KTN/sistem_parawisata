@@ -3,7 +3,7 @@
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-10 col-lg-12 col-mx-9">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
@@ -43,13 +43,18 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-                                        <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="<?= base_url(
                                             'login/register'
                                         ) ?>">Create an Account!</a>
+                                    </div>
+                                    <br>
+                                    <div class="text-center">
+                                        <a class="small" href="<?= base_url(
+                                            'home'
+                                        ) ?>">Back</a>
                                     </div>
                                 </div>
                             </div>
