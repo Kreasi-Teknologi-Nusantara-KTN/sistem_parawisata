@@ -41,7 +41,7 @@
                                 <div class="form-group form-control-select ">
                                     <select class="form-control selectBox" name="jenkel">
                                         <option value="laki-laki">Laki-laki</option>
-                                        <option value="laki-laki">Perempuan</option>
+                                        <option value="perempuan">Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
