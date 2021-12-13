@@ -39,6 +39,18 @@ class Login extends CI_Controller
         if ($user) {
             if ($user['is_active'] == 1) {
                 if (password_verify($password, $user['password'])) {
+                    $data = [
+                        'email' => $user['email'],
+                        'role' => $user['role'],
+                    ];
+                    $this->session->set_userdata($data);
+                    if ($user['role'] == 1) {
+                        redirect('Admin');
+                    } elseif ($user['role'] == 2) {
+                        redirect('Pengelola');
+                    } else {
+                        redirect('Home');
+                    }
                 } else {
                     $this->session->set_flashdata(
                         'message',
@@ -113,6 +125,18 @@ class Login extends CI_Controller
             );
             redirect('login');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role');
+
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success" role="alert">Berhasil Logout</div>'
+        );
+        redirect('login');
     }
 }
 
