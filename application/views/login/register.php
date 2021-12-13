@@ -25,16 +25,18 @@
                                         ) ?>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="email"
+                                    <input type="email" class="form-control form-control-user" id="email"
                                     name="email"
                                         placeholder="Email Address" value="<?= set_value(
                                             'email'
                                         ) ?>" >
+
                                         <?= form_error(
                                             'email',
                                             '<small class="text-danger pl-3">',
                                             '</small>'
                                         ) ?>
+
                                 </div>
                                 <div class="form-group form-control-select ">
                                     <select class="form-control selectBox" name="jenkel">
@@ -75,10 +77,9 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="<?= base_url(
+                                    'login'
+                                ) ?>">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>

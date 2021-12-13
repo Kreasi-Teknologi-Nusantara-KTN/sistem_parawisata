@@ -10,20 +10,66 @@ class Login extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Login';
-        $this->load->view('login/templates/header', $data);
-        $this->load->view('login/login');
-        $this->load->view('login/templates/footer');
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'trim|required|valid_email'
+        );
+        $this->form_validation->set_rules(
+            'password',
+            'Password',
+            'trim|required'
+        );
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Login';
+            $this->load->view('login/templates/header', $data);
+            $this->load->view('login/login');
+            $this->load->view('login/templates/footer');
+        } else {
+            $this->_login();
+        }
+    }
+
+    private function _login()
+    {
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+
+        if ($user) {
+            if ($user['is_active'] == 1) {
+                if (password_verify($password, $user['password'])) {
+                } else {
+                    $this->session->set_flashdata(
+                        'message',
+                        '<div class="alert alert-danger" role="alert">Password salah</div>'
+                    );
+                    redirect('login');
+                }
+            } else {
+                $this->session->set_flashdata(
+                    'message',
+                    '<div class="alert alert-danger" role="alert">Email Belum di aktivasi</div>'
+                );
+                redirect('login');
+            }
+        } else {
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger" role="alert">Emali Belum Terdaftar, Silahkan daftar terlebih dahulu</div>'
+            );
+            redirect('login');
+        }
     }
 
     public function register()
     {
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        // $this->form_validation->set_rules(
-        //     'email',
-        //     'Email',
-        //     'required|trim|valid_email]'
-        // );
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'trim|required|valid_email'
+        );
         $this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules(
@@ -48,12 +94,12 @@ class Login extends CI_Controller
             $this->load->view('login/templates/footer');
         } else {
             $data = [
-                'nama' => $this->input->post('nama'),
-                'email' => $this->input->post('email'),
-                'jenkel' => $this->input->post('jenkel'),
-                'alamat' => $this->input->post('alamat'),
+                'nama' => htmlspecialchars($this->input->post('nama')),
+                'email' => htmlspecialchars($this->input->post('email')),
+                'jenkel' => htmlspecialchars($this->input->post('jenkel')),
+                'alamat' => htmlspecialchars($this->input->post('alamat')),
                 'password' => password_hash(
-                    $this->input->post('password'),
+                    $this->input->post('password1'),
                     PASSWORD_DEFAULT
                 ),
                 'role' => 3,
@@ -61,6 +107,10 @@ class Login extends CI_Controller
                 'date_created' => time(),
             ];
             $this->db->insert('user', $data);
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Login</div>'
+            );
             redirect('login');
         }
     }
