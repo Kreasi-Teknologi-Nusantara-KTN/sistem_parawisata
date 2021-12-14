@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2021 pada 04.37
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 7.3.30
+-- Waktu pembuatan: 14 Des 2021 pada 02.48
+-- Versi server: 10.4.13-MariaDB
+-- Versi PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,6 +60,36 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `nama`, `email`, `jenkel`, `alamat`, `password`, `role`, `is_active`, `date_created`) VALUES
+(8, 'Inwan Anwar Solihudin', 'inwananwar@gmail.com', 'laki-laki', 'Purwakarta', '$2y$10$rKu2UdBvTHEJh43Qob6J8.irVwoTpErE.VCET4xJ3NGzqti4dDDqe', 1, 1, 1639376954);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `wisata`
+--
+
+CREATE TABLE `wisata` (
+  `id_wisata` int(11) NOT NULL,
+  `nama_wisata` varchar(128) NOT NULL,
+  `lokasi` varchar(128) NOT NULL,
+  `fitur` varchar(128) NOT NULL,
+  `informasi_wisata` text NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `gambar` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `wisata`
+--
+
+INSERT INTO `wisata` (`id_wisata`, `nama_wisata`, `lokasi`, `fitur`, `informasi_wisata`, `status`, `gambar`) VALUES
+(1, 'Kewirausahaan', 'Purwakarta', 'jfkfasdf', 'sdahfjkhasjflasjfs', 'Belum disetujui', 'MH.JPG');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -76,6 +106,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `wisata`
+--
+ALTER TABLE `wisata`
+  ADD PRIMARY KEY (`id_wisata`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -89,7 +125,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `wisata`
+--
+ALTER TABLE `wisata`
+  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
