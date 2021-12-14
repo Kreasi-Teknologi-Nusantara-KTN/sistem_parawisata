@@ -25,7 +25,7 @@ class Pengajuan extends CI_Controller
                     'informasi_wisata' => $informasi,
                     'status' => $status
                 ];
-                $this->db->insert('wisata', $data);
+                $this->ModelPengajuan->add('wisata', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Berhasil pengajuan! Mohon tunggu persetujuan Admin
         </div>');
@@ -35,5 +35,28 @@ class Pengajuan extends CI_Controller
                 redirect('Home');
             }
         }
+    }
+
+    // public function dataPengajuan()
+    // {
+    //     $where = 'status';
+    //     $data = [
+    //         'pengajuan' => $this->ModelPengajuan->get('wisata'),
+    //         'status' => $where
+    //     ];
+    //     $this->load->view('admin/templates/header');
+    //     $this->load->view('admin/templates/sidebar');
+    //     $this->load->view('admin/wisata', $data);
+    //     $this->load->view('admin/templates/footer');
+    // }
+
+    public function verifikasi($id)
+    {
+        $status = $this->input->post('status');
+        $this->ModelPengajuan->verifikasi($status, $id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Verifikasi berhasil!
+        </div>');
+        redirect('Admin/wisata');
     }
 }

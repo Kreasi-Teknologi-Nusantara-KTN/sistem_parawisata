@@ -25,9 +25,14 @@ class Admin extends CI_Controller
 
     public function wisata()
     {
+        $where = 'status';
+        $data = [
+            'pengajuan' => $this->ModelPengajuan->get('wisata'),
+            'status' => $where
+        ];
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/wisata');
+        $this->load->view('admin/wisata', $data);
         $this->load->view('admin/templates/footer');
     }
 
@@ -55,4 +60,3 @@ class Admin extends CI_Controller
         $this->load->view('admin/templates/footer');
     }
 }
-?>
