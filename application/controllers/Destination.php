@@ -4,7 +4,8 @@ class Destination extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('templates/header');
+        $data = ['judul' => 'Destinasi'];
+        $this->load->view('templates/header', $data);
         $this->load->view('destination');
         $this->load->view('templates/footer');
     }

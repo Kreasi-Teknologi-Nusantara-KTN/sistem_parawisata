@@ -21,8 +21,8 @@ class Login extends CI_Controller
             'trim|required'
         );
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Login';
-            $this->load->view('login/templates/header', $data);
+            $judul['judul'] = 'Login';
+            $this->load->view('login/templates/header', $judul);
             $this->load->view('login/login');
             $this->load->view('login/templates/footer');
         } else {
