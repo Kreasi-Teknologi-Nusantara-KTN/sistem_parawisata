@@ -5,6 +5,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_login_in();
+        $this->load->library(['encryption']);
     }
 
     public function index()
@@ -37,10 +38,12 @@ class Admin extends CI_Controller
     }
 
     public function pengelola()
-    {
+    {   
+      
+      $data['peng']     = $this->ModelPengelola->getpengelola();
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/pengelola');
+        $this->load->view('admin/pengelola',$data);
         $this->load->view('admin/templates/footer');
     }
 

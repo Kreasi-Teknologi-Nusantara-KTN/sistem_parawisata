@@ -17,32 +17,33 @@
                 <th>Nama Pengelola</th>
                 <th>Jenkel</th>
                 <th>Alamat</th>
-                <th>Foto</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Jimi</td>
-                <td>Laki-laki</td>
-                <td>subang</td>
-                <td>foto</td>
-                <td> 
-                    <button type="button" class="btn btn-warning btn-circle mb-2" data-toggle="modal" data-target="#exampleModal">
+            <?php
+              $no = 1;
+              foreach ($peng as $pen) : ?>
+               <tr>
+                 <td><?= $no++; ?></td>
+                 <td><?= $pen['nama']; ?></td>
+                 <td><?= $pen['jenkel']; ?></td>
+                 <td><?= $pen['alamat']; ?></td>
+                 <td>
+                    <button type="button" class="btn btn-warning btn-circle mb-2" data-toggle="modal" data-target="#editModal<?php echo $pen['id'];?>">
                       <i class="fas fa-pen-square"></i>
                     </button>
                     <button type="button" class="btn btn-danger btn-circle mb-2"><i class="fas fa-trash"></i></button>
                 </td>
-            </tr>
+                </tr>
+                <?php endforeach; ?>
         </tbody>
         <tfoot>
             <tr>
                 <th>Id</th>
                 <th>Nama Pengelola</th>
                 <th>Jenkel</th>
-                <th>Alamat</th>
-                <th>Foto</th>
+                <th>Alamat</th>               
                 <th>Action</th>
             </tr>
         </tfoot>
@@ -62,53 +63,61 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      
+      <form class="user" method="POST" action="<?= base_url(
+                                'Pengelola/SavePengelola'
+                            ) ?>">
       <div class="modal-body">
-        <form>
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="namaPengelola">Nama Pengelola</label>
-                    <input type="text" class="form-control" id="namaPengelola" placeholder="">
-                  </div>
-
-                  <div class="form-group">
-                        <label>Jenkel</label>
-                        <select class="form-control">
-                          <option>Laki-laki</option>
-                          <option>Perempuan</option>
-                        </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <input type="text" class="form-control" id="alamat" placeholder="">
-                  </div>
-                
-                  <div class="form-group">
-                    <label for="exampleInputFile">Gambar</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
-                    </div>
-                  </div>
-          
-                </div>
-        </form>
-      </div>
+              <div class="form-group">
+                                    <input type="text" class="form-control " id="nama" name="nama"
+                                        placeholder="nama"">
+                                      
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control " id="email"
+                                    name="email"
+                                    placeholder="Email Address">                                  
+                                </div>
+                                <div class="form-group form-control-select ">
+                                    <select class="form-control selectBox" name="jenkel">
+                                        <option value="laki-laki">Laki-laki</option>
+                                        <option value="perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control " id="alamat" name="alamat"
+                                        placeholder="Alamat" >
+                                  
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control"
+                                            id="password1" name="password1" placeholder="Password">
+                                            
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control"
+                                            id="password2" name="password2" placeholder="Repeat Password">
+                                    </div>
+                                </div>
+                            </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="Submit" class="btn btn-primary">Save changes</button>
       </div>
+      </div>
+      </div>
+      </form>
     </div>
   </div>
 </div>
 
 <!-- Modal Edit-->
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+<?php foreach ($peng as $pen) { 
+  $a    = $pen['id'];
+  $iid   = str_replace(['=','+','/'], ['-','_','~'], $this->encryption->encrypt($pen['id']));
+  ?>
+            <div class="modal fade" id="editModal<?php echo $pen['id'];?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -122,12 +131,14 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="namaPengelola">Nama Pengelola</label>
-                                    <input type="text" class="form-control" id="namaPengelola" placeholder="">
+                                    <input type="text" class="form-control" id="namaPengelola" placeholder="" value="<?=$pen['nama']?>">
                                 </div>
+                                
 
                                 <div class="form-group">
                                         <label>Jenkel</label>
                                         <select class="form-control">
+                                          <option value="<?=$pen['jenkel']?>"><?=$pen['jenkel']?></option>
                                         <option>Laki-laki</option>
                                         <option>Perempuan</option>
                                         </select>
@@ -136,22 +147,15 @@
 
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <input type="text" class="form-control" id="alamat" placeholder="">
+                                    <input type="text" class="form-control" id="alamat" placeholder="" value="<?=$pen['alamat']?>">>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="text" class="form-control" id="password" placeholder="" value="<?=$pen['password']?>">>
                                 </div>
                             
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Gambar</label>
-                                    <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                     </form>
                         <div class="modal-footer">
@@ -164,3 +168,4 @@
         </div>
     </div>
 </div>
+<?php } ?>

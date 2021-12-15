@@ -110,10 +110,7 @@ class Login extends CI_Controller
                 'email' => htmlspecialchars($this->input->post('email')),
                 'jenkel' => htmlspecialchars($this->input->post('jenkel')),
                 'alamat' => htmlspecialchars($this->input->post('alamat')),
-                'password' => password_hash(
-                    $this->input->post('password1'),
-                    PASSWORD_DEFAULT
-                ),
+                'password' => md5($this->input->post('password1')),
                 'role' => 3,
                 'is_active' => 1,
                 'date_created' => time(),
