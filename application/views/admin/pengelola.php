@@ -23,7 +23,11 @@
         <tbody>
             <?php
               $no = 1;
-              foreach ($peng as $pen) : ?>
+              
+              foreach ($peng as $pen) : 
+              $id = str_replace(['=','+','/'], ['-','_','~'], $this->encryption->encrypt($pen['id']));
+              ?>
+              
                <tr>
                  <td><?= $no++; ?></td>
                  <td><?= $pen['nama']; ?></td>
@@ -33,7 +37,7 @@
                     <button type="button" class="btn btn-warning btn-circle mb-2" data-toggle="modal" data-target="#editModal<?php echo $pen['id'];?>">
                       <i class="fas fa-pen-square"></i>
                     </button>
-                    <button type="button" class="btn btn-danger btn-circle mb-2"><i class="fas fa-trash"></i></button>
+                    <button type="button"  class="btn btn-danger btn-circle mb-2" data-toggle="modal" data-target="#hapusModal<?php echo $pen['id']?>"><i class="fas fa-trash"></i></button>
                 </td>
                 </tr>
                 <?php endforeach; ?>
@@ -65,12 +69,12 @@
       </div>
       
       <form class="user" method="POST" action="<?= base_url(
-                                'Pengelola/SavePengelola'
+                                'Admin/SavePengelola'
                             ) ?>">
       <div class="modal-body">
               <div class="form-group">
                                     <input type="text" class="form-control " id="nama" name="nama"
-                                        placeholder="nama"">
+                                        placeholder="nama">
                                       
                                 </div>
                                 <div class="form-group">
@@ -78,8 +82,8 @@
                                     name="email"
                                     placeholder="Email Address">                                  
                                 </div>
-                                <div class="form-group form-control-select ">
-                                    <select class="form-control selectBox" name="jenkel">
+                                <div class="form-group  ">
+                                    <select class="form-control" name="jenkel">
                                         <option value="laki-laki">Laki-laki</option>
                                         <option value="perempuan">Perempuan</option>
                                     </select>
@@ -114,30 +118,40 @@
 
 <!-- Modal Edit-->
 <?php foreach ($peng as $pen) { 
-  $a    = $pen['id'];
-  $iid   = str_replace(['=','+','/'], ['-','_','~'], $this->encryption->encrypt($pen['id']));
+  
+  
   ?>
             <div class="modal fade" id="editModal<?php echo $pen['id'];?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModalLabel">Edit</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                <form methode="POST" action="<?= base_url(
+                                'Admin/edit/'.$pen['id']
+                            ) ?>">
                 <div class="modal-body">
-                    <form>
+                    
                             <div class="card-body">
                                 <div class="form-group">
+                                <input type="text" class="form-control" id="id" name="id" placeholder="" value="<?=$pen['id']?>">
                                     <label for="namaPengelola">Nama Pengelola</label>
-                                    <input type="text" class="form-control" id="namaPengelola" placeholder="" value="<?=$pen['nama']?>">
+                                    <input type="text" class="form-control" id="namaPengelola" placeholder="" name="nama" value="<?=$pen['nama']?>">
+                                    
                                 </div>
                                 
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" name="email" id="email" placeholder="" value="<?=$pen['email']?>">
+                                </div>
 
                                 <div class="form-group">
                                         <label>Jenkel</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="jenkel">
                                           <option value="<?=$pen['jenkel']?>"><?=$pen['jenkel']?></option>
                                         <option>Laki-laki</option>
                                         <option>Perempuan</option>
@@ -147,25 +161,78 @@
 
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <input type="text" class="form-control" id="alamat" placeholder="" value="<?=$pen['alamat']?>">>
+                                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="" value="<?=$pen['alamat']?>">
                                 </div>
-
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control"
+                                            id="password1" name="password1" value="<?=$pen['password']?>" placeholder="Password">
+                                            
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control"
+                                            id="password2" name="password2" placeholder="Repeat Password">
+                                    </div>
+                                </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="text" class="form-control" id="password" placeholder="" value="<?=$pen['password']?>">>
+                                    <input type="text" class="form-control" name="role" id="role" placeholder="" value="<?=$pen['role']?>">
+                                    <input type="text" class="form-control" name="is_active" id="is_active" placeholder="" value="<?=$pen['is_active']?>">
+                                    <input type="text" class="form-control" name="date_created" id="date_created" placeholder="" value="<?=$pen['date_created']?>">
+
                                 </div>
                             
                                 
                             </div>
-                    </form>
+                    
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
+                        </form>
                     </div>
+                    
                  </div>
             </div>
         </div>
     </div>
 </div>
 <?php } ?>
+
+<?php foreach ($peng as $pen) { ?>
+<div class="modal fade" id="hapusModal<?php echo $pen['id']?>" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="hapusModalLabel">Hapus Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <form class="user" method="POST" action="<?= base_url(
+                                'Admin/hapusPengelola/'.$pen['id']
+                            ) ?>">
+      <div class="modal-body">
+              Apakah anda yakin ingin menghapus data ini?
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="Submit" onclick="deleteConfirm('<?=base_url('Admin/hapusPengelola'.$id) ?>')" class="btn btn-danger">Hapus</button>
+      </div>
+      </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- End Modal Delete -->
+<?php } ?>
+
+<script>
+  function deleteConfirm(url)
+  {
+    $('#hapus').attr('href',url);
+    $('#hapusModal').modal();
+  }
+
+</script>

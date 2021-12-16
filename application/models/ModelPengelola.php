@@ -19,10 +19,23 @@
       return $this->db->get('user')->result_array();
     }
 
-    public function ubah($table, $id, $where, $data)
-    {
-      $this->db->update($table, $data , [$id=>$where]);
+    public function get_by($table,$id, $where)
+	{
+		return $this->db->get_where($table, [$id=>$where]);
+	}
+
+    public function update($table,$where,$data){		
+       $res = $this->db->update($table,$where,$data);
+       return $res;
     }
+
+    public function delete($table,$where)
+    {
+      $res = $this->db->delete($table,$where);
+       return $res;
+    }
+
+    
 
     public function verifikasi($status, $id)
     {
