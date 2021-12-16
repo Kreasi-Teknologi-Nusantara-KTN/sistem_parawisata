@@ -131,14 +131,14 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form methode="POST" action="<?= base_url(
+                <form method="POST" action="<?= base_url(
                                 'Admin/edit/'.$pen['id']
                             ) ?>">
                 <div class="modal-body">
                     
                             <div class="card-body">
                                 <div class="form-group">
-                                <input type="text" class="form-control" id="id" name="id" placeholder="" value="<?=$pen['id']?>">
+                                <input type="hidden" class="form-control" id="id" name="id" placeholder="" value="<?=$pen['id']?>">
                                     <label for="namaPengelola">Nama Pengelola</label>
                                     <input type="text" class="form-control" id="namaPengelola" placeholder="" name="nama" value="<?=$pen['nama']?>">
                                     
@@ -164,6 +164,7 @@
                                     <input type="text" class="form-control" name="alamat" id="alamat" placeholder="" value="<?=$pen['alamat']?>">
                                 </div>
                                 <div class="form-group row">
+                                <label for="alamat" style="margin-left: 10px;">Masukan Kembali Atau Ubah Password Untuk Menyimpan</label>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control"
                                             id="password1" name="password1" value="<?=$pen['password']?>" placeholder="Password">
@@ -175,9 +176,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="role" id="role" placeholder="" value="<?=$pen['role']?>">
-                                    <input type="text" class="form-control" name="is_active" id="is_active" placeholder="" value="<?=$pen['is_active']?>">
-                                    <input type="text" class="form-control" name="date_created" id="date_created" placeholder="" value="<?=$pen['date_created']?>">
+                                    <input type="hidden" class="form-control" name="role" id="role" placeholder="" value="<?=$pen['role']?>">
+                                    <input type="hidden" class="form-control" name="is_active" id="is_active" placeholder="" value="<?=$pen['is_active']?>">
+                                    <input type="hidden" class="form-control" name="date_created" id="date_created" placeholder="" value="<?=$pen['date_created']?>">
 
                                 </div>
                             
