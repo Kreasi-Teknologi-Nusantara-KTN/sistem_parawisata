@@ -2,7 +2,7 @@
  <div class="container-fluid">
    <!-- Page Heading -->
    <div class="button mb-3">
-     <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#adddataModal"><span><i class="fas fa-plus"></i></span> Tambah</button>
+     <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"><span><i class="fas fa-plus"></i></span> Tambah</button>
    </div>
    <div class="card shadow mb-4">
      <div class="card-header py-3">
@@ -37,7 +37,7 @@
                  <td><?= $ajukan['informasi_wisata']; ?></td>
                  <td><?= $ajukan['status']; ?></td>
                  <td><a href="" data-toggle="modal" data-target="#AccModal<?= $ajukan['id_wisata']; ?>">Verifikasi</a></td>
-                 <td><a href="">Ubah</a></td>
+                 <td><a href="" data-toggle="modal" data-target="#EditModal<?= $ajukan['id_wisata'];?>">Ubah</a></td>
                  <td><a href="">Hapus</a></td>
                </tr>
              <?php endforeach; ?>
@@ -62,56 +62,58 @@
 
 
    <!-- Modal tambah data -->
-   <div class="modal fade" id="adddataModal" tabindex="-1" role="dialog" aria-labelledby="adddataModalLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="adddataModalLabel">Tambah Data</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body">
-           <form>
-             <div class="card-body">
-               <div class="form-group">
-                 <label for="exampleInputEmail1">Nama Wisata</label>
-                 <input type="text" class="form-control" id="namawisata" placeholder="">
-               </div>
+  <!-- Modal tambah data -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adddataModalLabel">Pengajuan Wisata</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url('Admin/addwisata'); ?>" method="POST" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nama Wisata</label>
+                            <input type="text" class="form-control" name="nama" placeholder="">
+                        </div>
 
-               <div class="form-group">
-                 <label for="exampleInputEmail1">Lokasi</label>
-                 <input type="text" class="form-control" id="namawisata" placeholder="">
-               </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Lokasi</label>
+                            <input type="text" class="form-control" name="lokasi" placeholder="">
+                        </div>
 
-               <div class="form-group">
-                 <label for="exampleInputEmail1">Fitur</label>
-                 <input type="text" class="form-control" id="namawisata" placeholder="">
-               </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Fitur</label>
+                            <input type="text" class="form-control" name="fitur" placeholder="">
+                        </div>
 
-               <div class="form-group">
-                 <label for="exampleInputFile">Gambar</label>
-                 <div class="input-group">
-                   <div class="custom-file">
-                     <input type="file" class="custom-file-input" id="exampleInputFile">
-                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                   </div>
-                   <div class="input-group-append">
-                     <span class="input-group-text">Upload</span>
-                   </div>
-                 </div>
-               </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Gambar</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="gambar">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Informasi Wisata</label>
+                            <textarea name="informasi" id="" class="form-control"></textarea>
+                            <input type="hidden" name="status" value="Belum disetujui">
+                        </div>
 
-             </div>
-           </form>
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-           <button type="button" class="btn btn-primary">Save changes</button>
-         </div>
-       </div>
-     </div>
-   </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
    <!-- Modal Verifikasi -->
    <?php foreach ($pengajuan as $ajukan1) : ?>
      <div class="modal fade" id="AccModal<?= $ajukan1['id_wisata']; ?>" tabindex="-1" role="dialog" aria-labelledby="adddataModalLabel" aria-hidden="true">
@@ -142,7 +144,8 @@
      </div>
    <?php endforeach; ?>
    <!-- Modal Edit-->
-   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <?php foreach ($pengajuan as $ajukan) : ?>
+   <div class="modal fade" id="EditModal<?= $ajukan['id_wisata'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-header">
@@ -154,19 +157,20 @@
          <div class="modal-body">
            <form>
              <div class="card-body">
+               <input type="hidden" class="form-control" id="id_wisata" name="" value="<?= $ajukan['id_wisata']?>">
                <div class="form-group">
                  <label for="exampleInputEmail1">Nama Wisata</label>
-                 <input type="text" class="form-control" id="namawisata" placeholder="">
+                 <input type="text" class="form-control" id="namawisata" name="" value="<?= $ajukan['nama_wisata']?>" placeholder="">
                </div>
 
                <div class="form-group">
                  <label for="exampleInputEmail1">Lokasi</label>
-                 <input type="text" class="form-control" id="namawisata" placeholder="">
+                 <input type="text" class="form-control" id="lokasi" name="" value="<?= $ajukan['lokasi']?>" placeholder="">
                </div>
 
                <div class="form-group">
                  <label for="exampleInputEmail1">Fitur</label>
-                 <input type="text" class="form-control" id="namawisata" placeholder="">
+                 <input type="text" class="form-control" id="namawisata" name="" value="<?= ['fitur']?>" placeholder="">
                </div>
 
                <div class="form-group">
@@ -189,6 +193,7 @@
            </div>
          </div>
        </div>
+       <?php endforeach; ?>
 
 
      </div>
