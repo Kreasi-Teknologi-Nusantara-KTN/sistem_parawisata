@@ -163,11 +163,12 @@
                                     <label for="alamat">Alamat</label>
                                     <input type="text" class="form-control" name="alamat" id="alamat" placeholder="" value="<?=$pen['alamat']?>">
                                 </div>
+                                <label for="alamat">Masukan Password Baru</label>
                                 <div class="form-group row">
-                                <label for="alamat" style="margin-left: 10px;">Masukan Kembali Atau Ubah Password Untuk Menyimpan</label>
+                                
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control"
-                                            id="password1" name="password1" value="<?=$pen['password']?>" placeholder="Password">
+                                            id="password1" name="password1" value="" placeholder="Password">
                                             
                                     </div>
                                     <div class="col-sm-6">
