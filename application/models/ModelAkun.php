@@ -1,6 +1,6 @@
 <?php
 
-  class ModelPengelola extends CI_Model
+  class ModelAkun extends CI_Model
    {
     public function get($table)
     {
@@ -10,13 +10,6 @@
     public function add($table, $data)
     {
         return $this->db->insert($table, $data);
-    }
-
-    public function getpengelola()
-    {
-      $this->db->where('role', '2');
-    
-      return $this->db->get('user')->result_array();
     }
 
     public function getakun()
