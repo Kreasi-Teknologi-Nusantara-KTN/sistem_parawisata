@@ -79,6 +79,7 @@ class Admin extends CI_Controller
     {
       $this->load->library('upload');
         $upload_gambar = $_FILES['gambar'];
+        $id_wisata = $this->input->post('id_wisata');
         $nama = $this->input->post('nama');
         $lokasi = $this->input->post('lokasi');
         $fitur = $this->input->post('fitur');
@@ -93,16 +94,17 @@ class Admin extends CI_Controller
                 $gbr = $this->upload->data('file_name');
                 $data = [
                     'gambar' => $gbr,
+                    'id_wisata' => $id_wisata,
                     'nama_wisata' => $nama,
                     'lokasi' => $lokasi,
                     'fitur' => $fitur,
                     'informasi_wisata' => $informasi,
-                    'status' => $status
+                    
                 ];
-                $where= array('id' => $id);
-        $res = $this->ModelPengelola->update('user',$data,$where);
+                $where= array('id_wisata' => $id);
+        $res = $this->ModelPengelola->update('wisata',$data,$where);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        Berhasil Memasukan Data Wisata
+        Berhasil Mengubah Data Wisata
         </div>');
                 redirect('admin/wisata');
             } else {
@@ -112,6 +114,16 @@ class Admin extends CI_Controller
         }
     
     }
+
+    public function hapusWisata($id)
+    {
+      $where = array('id_wisata' => $id);
+      $res = $this->ModelPengajuan->delete('wisata', $where);
+      $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+        Berhasil Menghapus Data Wisata
+        </div>');
+      redirect ('Admin/Wisata');
+    } 
 
 
 // pengelola
@@ -240,6 +252,9 @@ class Admin extends CI_Controller
     {
       $where = array('id' => $id);
       $res = $this->ModelPengelola->delete('user', $where);
+      $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+        Berhasil Menghapus Data Pengelola
+        </div>');
       redirect ('Admin/Pengelola');
     } 
 

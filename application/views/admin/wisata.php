@@ -38,7 +38,7 @@
                  <td><?= $ajukan['status']; ?></td>
                  <td><a href="" data-toggle="modal" data-target="#AccModal<?= $ajukan['id_wisata']; ?>">Verifikasi</a></td>
                  <td><a href="" data-toggle="modal" data-target="#EditModal<?= $ajukan['id_wisata'];?>">Ubah</a></td>
-                 <td><a href="">Hapus</a></td>
+                 <td><a href="" data-toggle="modal" data-target="#HapusModal<?= $ajukan['id_wisata']?>">Hapus</a></td>
                </tr>
              <?php endforeach; ?>
            </tbody>
@@ -59,9 +59,9 @@
        </div>
      </div>
    </div>
+              
 
-
-   <!-- Modal tambah data -->
+   
   <!-- Modal tambah data -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -114,6 +114,7 @@
             </div>
         </div>
     </div>
+              </div>
    <!-- Modal Verifikasi -->
    <?php foreach ($pengajuan as $ajukan1) : ?>
      <div class="modal fade" id="AccModal<?= $ajukan1['id_wisata']; ?>" tabindex="-1" role="dialog" aria-labelledby="adddataModalLabel" aria-hidden="true">
@@ -154,49 +155,92 @@
              <span aria-hidden="true">&times;</span>
            </button>
          </div>
+         <form method="post" action="<?= base_url(
+                                'Admin/editwisata/'.$ajukan['id_wisata']
+                            ) ?>" enctype="multipart/form-data">
          <div class="modal-body">
-           <form>
+           
              <div class="card-body">
-               <input type="hidden" class="form-control" id="id_wisata" name="" value="<?= $ajukan['id_wisata']?>">
+               <input type="hidden" class="form-control" id="id_wisata" name="id_wisata" value="<?= $ajukan['id_wisata']?>">
                <div class="form-group">
                  <label for="exampleInputEmail1">Nama Wisata</label>
-                 <input type="text" class="form-control" id="namawisata" name="" value="<?= $ajukan['nama_wisata']?>" placeholder="">
+                 <input type="text" class="form-control" id="namawisata" name="nama" value="<?= $ajukan['nama_wisata']?>" placeholder="">
                </div>
 
                <div class="form-group">
                  <label for="exampleInputEmail1">Lokasi</label>
-                 <input type="text" class="form-control" id="lokasi" name="" value="<?= $ajukan['lokasi']?>" placeholder="">
+                 <input type="text" class="form-control" id="lokasi" name="lokasi" value="<?= $ajukan['lokasi']?>" placeholder="">
                </div>
 
                <div class="form-group">
                  <label for="exampleInputEmail1">Fitur</label>
-                 <input type="text" class="form-control" id="namawisata" name="" value="<?= ['fitur']?>" placeholder="">
+                 <input type="text" class="form-control" id="namawisata" name="fitur" value="<?= $ajukan['fitur']?>" placeholder="">
                </div>
 
                <div class="form-group">
                  <label for="exampleInputFile">Gambar</label>
                  <div class="input-group">
                    <div class="custom-file">
-                     <input type="file" class="custom-file-input" id="exampleInputFile">
+                     <input type="file" class="custom-file-input"  id="exampleInputFile" name="gambar">
                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                    </div>
-                   <div class="input-group-append">
-                     <span class="input-group-text">Upload</span>
-                   </div>
+                   
                  </div>
                </div>
+               <div class="form-group">
+                            <label for="">Informasi Wisata</label>
+                            <textarea name="informasi" id="" name="informasi" class="form-control"><?= $ajukan['informasi_wisata']?></textarea>
+                        </div>
              </div>
-           </form>
+           
            <div class="modal-footer">
              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             <button type="button" class="btn btn-primary">Save changes</button>
+             <button type="submit" class="btn btn-primary">Save changes</button>
            </div>
+           </form>
          </div>
        </div>
-       <?php endforeach; ?>
-
-
      </div>
    </div>
  </div>
  </div>
+ <?php endforeach; ?>
+
+ <?php foreach ($pengajuan as $ajukan) { ?>
+<div class="modal fade" id="HapusModal<?= $ajukan['id_wisata']?>" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="hapusModalLabel">Hapus Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <form class="user" method="POST" action="<?= base_url(
+                                'Admin/hapusWisata/'.$ajukan['id_wisata']
+                            ) ?>">
+      <div class="modal-body">
+              Apakah anda yakin ingin menghapus data ini?
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="Submit" onclick="deleteConfirm('<?=base_url('Admin/hapusWisata') ?>')" class="btn btn-danger">Hapus</button>
+      </div>
+      </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- End Modal Delete -->
+<?php } ?>
+
+<script>
+  function deleteConfirm(url)
+  {
+    $('#hapus').attr('href',url);
+    $('#hapusModal').modal();
+  }
+
+</script>

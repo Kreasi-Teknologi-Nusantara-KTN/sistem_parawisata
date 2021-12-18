@@ -21,6 +21,12 @@ class ModelPengajuan extends CI_Model
       return $res;
    }
 
+   public function delete($table,$where)
+    {
+      $res = $this->db->delete($table,$where);
+       return $res;
+    }
+
     public function verifikasi($status, $id)
     {
         return $this->db->query("UPDATE wisata SET status = '$status'  WHERE id_wisata = $id");
