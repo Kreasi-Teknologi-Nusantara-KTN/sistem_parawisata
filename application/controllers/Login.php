@@ -21,8 +21,8 @@ class Login extends CI_Controller
             'trim|required'
         );
         if ($this->form_validation->run() == false) {
-            $judul['judul'] = 'Login';
-            $this->load->view('login/templates/header', $judul);
+            $data['judul'] = 'Login';
+            $this->load->view('login/templates/header', $data);
             $this->load->view('login/login');
             $this->load->view('login/templates/footer');
         } else {
@@ -136,5 +136,3 @@ class Login extends CI_Controller
         redirect('login');
     }
 }
-
-?>
