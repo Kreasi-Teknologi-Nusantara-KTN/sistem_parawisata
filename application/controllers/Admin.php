@@ -17,141 +17,145 @@ class Admin extends CI_Controller
         $this->load->view('admin/templates/footer');
     }
 
+    /* -------------------------------------------------------------------------- */
+    /*                         revisi fitur akun di hapus                         */
+    /* -------------------------------------------------------------------------- */
+
     // Akun
-    public function akun()
-    {
-        $data['peng'] = $this->ModelAkun->getakun();
-        $this->load->view('admin/templates/header');
-        $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/akun', $data);
-        $this->load->view('admin/templates/footer');
-    }
-    public function SaveAkun()
-    {
-        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules(
-            'email',
-            'Email',
-            'trim|required|valid_email'
-        );
-        $this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-        $this->form_validation->set_rules(
-            'password1',
-            'Password',
-            'required|trim|matches[password2]|min_length[4]',
-            [
-                'matches' => 'password tidak sama',
-                'min_lenght' => 'Password terlalu pendek',
-            ]
-        );
-        $this->form_validation->set_rules(
-            'password2',
-            'Password',
-            'required|trim|matches[password1]'
-        );
+    // public function akun()
+    // {
+    //     $data['peng'] = $this->ModelAkun->getakun();
+    //     $this->load->view('admin/templates/header');
+    //     $this->load->view('admin/templates/sidebar');
+    //     $this->load->view('admin/akun', $data);
+    //     $this->load->view('admin/templates/footer');
+    // }
+    // public function SaveAkun()
+    // {
+    //     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+    //     $this->form_validation->set_rules(
+    //         'email',
+    //         'Email',
+    //         'trim|required|valid_email'
+    //     );
+    //     $this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
+    //     $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+    //     $this->form_validation->set_rules(
+    //         'password1',
+    //         'Password',
+    //         'required|trim|matches[password2]|min_length[4]',
+    //         [
+    //             'matches' => 'password tidak sama',
+    //             'min_lenght' => 'Password terlalu pendek',
+    //         ]
+    //     );
+    //     $this->form_validation->set_rules(
+    //         'password2',
+    //         'Password',
+    //         'required|trim|matches[password1]'
+    //     );
 
-        if ($this->form_validation->run() == false) {
-            $data['peng'] = $this->ModelAkun->getakun();
-            $this->load->view('admin/templates/header');
-            $this->load->view('admin/templates/sidebar');
-            $this->load->view('admin/akun', $data);
-            $this->load->view('admin/templates/footer');
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-danger" role="alert">Gagal Menambahkan Akun User!</div>'
-            );
-        } else {
-            $data = [
-                'nama' => htmlspecialchars($this->input->post('nama')),
-                'email' => htmlspecialchars($this->input->post('email')),
-                'jenkel' => htmlspecialchars($this->input->post('jenkel')),
-                'alamat' => htmlspecialchars($this->input->post('alamat')),
-                'password' => password_hash(
-                    $this->input->post('password1'),
-                    PASSWORD_DEFAULT
-                ),
-                'role' => 3,
-                'is_active' => 1,
-                'date_created' => time(),
-            ];
-            $this->db->insert('user', $data);
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-success" role="alert">Berhasil Menambahkan Akun User</div>'
-            );
-            redirect('admin/akun');
-        }
-    }
+    //     if ($this->form_validation->run() == false) {
+    //         $data['peng'] = $this->ModelAkun->getakun();
+    //         $this->load->view('admin/templates/header');
+    //         $this->load->view('admin/templates/sidebar');
+    //         $this->load->view('admin/akun', $data);
+    //         $this->load->view('admin/templates/footer');
+    //         $this->session->set_flashdata(
+    //             'message',
+    //             '<div class="alert alert-danger" role="alert">Gagal Menambahkan Akun User!</div>'
+    //         );
+    //     } else {
+    //         $data = [
+    //             'nama' => htmlspecialchars($this->input->post('nama')),
+    //             'email' => htmlspecialchars($this->input->post('email')),
+    //             'jenkel' => htmlspecialchars($this->input->post('jenkel')),
+    //             'alamat' => htmlspecialchars($this->input->post('alamat')),
+    //             'password' => password_hash(
+    //                 $this->input->post('password1'),
+    //                 PASSWORD_DEFAULT
+    //             ),
+    //             'role' => 3,
+    //             'is_active' => 1,
+    //             'date_created' => time(),
+    //         ];
+    //         $this->db->insert('user', $data);
+    //         $this->session->set_flashdata(
+    //             'message',
+    //             '<div class="alert alert-success" role="alert">Berhasil Menambahkan Akun User</div>'
+    //         );
+    //         redirect('admin/akun');
+    //     }
+    // }
 
-    public function UpdateAkun($id)
-    {
-        $id_akun = ['id' => $id];
-        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules(
-            'email',
-            'Email',
-            'trim|required|valid_email'
-        );
-        $this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-        $this->form_validation->set_rules(
-            'password1',
-            'Password',
-            'required|trim|matches[password2]|min_length[4]',
-            [
-                'matches' => 'password tidak sama',
-                'min_lenght' => 'Password terlalu pendek',
-            ]
-        );
-        $this->form_validation->set_rules(
-            'password2',
-            'Password',
-            'required|trim|matches[password1]'
-        );
+    // public function UpdateAkun($id)
+    // {
+    //     $id_akun = ['id' => $id];
+    //     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+    //     $this->form_validation->set_rules(
+    //         'email',
+    //         'Email',
+    //         'trim|required|valid_email'
+    //     );
+    //     $this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
+    //     $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+    //     $this->form_validation->set_rules(
+    //         'password1',
+    //         'Password',
+    //         'required|trim|matches[password2]|min_length[4]',
+    //         [
+    //             'matches' => 'password tidak sama',
+    //             'min_lenght' => 'Password terlalu pendek',
+    //         ]
+    //     );
+    //     $this->form_validation->set_rules(
+    //         'password2',
+    //         'Password',
+    //         'required|trim|matches[password1]'
+    //     );
 
-        if ($this->form_validation->run() == false) {
-            $data['peng'] = $this->ModelAkun->getakun();
-            $this->load->view('admin/templates/header');
-            $this->load->view('admin/templates/sidebar');
-            $this->load->view('admin/akun', $data);
-            $this->load->view('admin/templates/footer');
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-danger" role="alert">Gagal Mengubah Akun User!</div>'
-            );
-        } else {
-            $data = [
-                'nama' => htmlspecialchars($this->input->post('nama')),
-                'email' => htmlspecialchars($this->input->post('email')),
-                'jenkel' => htmlspecialchars($this->input->post('jenkel')),
-                'alamat' => htmlspecialchars($this->input->post('alamat')),
-                'password' => password_hash(
-                    $this->input->post('password1'),
-                    PASSWORD_DEFAULT
-                ),
-                'role' => 3,
-                'is_active' => 1,
-                'date_created' => time(),
-            ];
-            $this->ModelAkun->update('user', $id_akun, $data);
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-success" role="alert">Berhasil Mengubah Akun User</div>'
-            );
-            redirect('admin/akun');
-        }
-    }
+    //     if ($this->form_validation->run() == false) {
+    //         $data['peng'] = $this->ModelAkun->getakun();
+    //         $this->load->view('admin/templates/header');
+    //         $this->load->view('admin/templates/sidebar');
+    //         $this->load->view('admin/akun', $data);
+    //         $this->load->view('admin/templates/footer');
+    //         $this->session->set_flashdata(
+    //             'message',
+    //             '<div class="alert alert-danger" role="alert">Gagal Mengubah Akun User!</div>'
+    //         );
+    //     } else {
+    //         $data = [
+    //             'nama' => htmlspecialchars($this->input->post('nama')),
+    //             'email' => htmlspecialchars($this->input->post('email')),
+    //             'jenkel' => htmlspecialchars($this->input->post('jenkel')),
+    //             'alamat' => htmlspecialchars($this->input->post('alamat')),
+    //             'password' => password_hash(
+    //                 $this->input->post('password1'),
+    //                 PASSWORD_DEFAULT
+    //             ),
+    //             'role' => 3,
+    //             'is_active' => 1,
+    //             'date_created' => time(),
+    //         ];
+    //         $this->ModelAkun->update('user', $id_akun, $data);
+    //         $this->session->set_flashdata(
+    //             'message',
+    //             '<div class="alert alert-success" role="alert">Berhasil Mengubah Akun User</div>'
+    //         );
+    //         redirect('admin/akun');
+    //     }
+    // }
 
-    public function hapusAkun($id)
-    {
-        $where = array('id' => $id);
-        $res = $this->ModelAkun->delete('user', $where);
-        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-        Berhasil Menghapus Data Akun
-        </div>');
-        redirect('admin/akun');
-    }
+    // public function hapusAkun($id)
+    // {
+    //     $where = array('id' => $id);
+    //     $res = $this->ModelAkun->delete('user', $where);
+    //     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+    //     Berhasil Menghapus Data Akun
+    //     </div>');
+    //     redirect('admin/akun');
+    // }
 
     // wisata
     public function wisata()
