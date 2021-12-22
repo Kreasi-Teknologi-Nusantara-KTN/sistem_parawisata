@@ -21,6 +21,7 @@
                <th>Gambar</th>
                <th>Informasi</th>
                <th>Status</th>
+               <th>Live View</th>
                <th colspan="3">Action</th>
              </tr>
            </thead>
@@ -36,6 +37,8 @@
                  <td><img width="100px" height="100px" src="<?= base_url('assets/images/' . $ajukan['gambar']); ?>" alt=""></td>
                  <td><?= $ajukan['informasi_wisata']; ?></td>
                  <td><?= $ajukan['status']; ?></td>
+                 <?php $url = prep_url($ajukan['link']); ?>
+                 <td><a href="<?= $url ?>" target="_blank" rel="noopener noreferrer"> view</a></td>
                  <td><a href="" data-toggle="modal" data-target="#AccModal<?= $ajukan['id_wisata']; ?>">Verifikasi</a></td>
                  <td><a href="" data-toggle="modal" data-target="#EditModal<?= $ajukan['id_wisata']; ?>">Ubah</a></td>
                  <td><a href="" data-toggle="modal" data-target="#HapusModal<?= $ajukan['id_wisata'] ?>">Hapus</a></td>
@@ -51,7 +54,7 @@
                <th>Gambar</th>
                <th>Informasi</th>
                <th>Status</th>
-
+               <th>Live View</th>
                <th colspan="3">Action</th>
              </tr>
            </tfoot>
