@@ -1,24 +1,18 @@
-<a href="#" class="float">
-    <i class="fa fa-envelope my-float"></i>
-</a>
-<div class="label-container">
-    <div class="label-text">Chat</div>
-    <i class="fa fa-play label-arrow"></i>
-</div>
+
 <!-- footer section  -->
 
 <section class="footer">
     <div class="box-container">
         <div class="box">
             <h3>about us</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, maxime!</p>
+            <p>Penyedia layanan pariwisata memberikan yang terbaik untuk anda</p>
         </div>
 
         <div class="box">
             <h3>quick links</h3>
-            <a href="home.html">home</a>
-            <a href="destination.html">destination</a>
-            <a href="login.html">login</a>
+            <a href="<?= base_url('home')?>">home</a>
+            <a href="<?= base_url('/destination')?>">destination</a>
+            <a href="<?= base_url('/login')?>">login</a>
         </div>
         <div class="box">
             <h3>contact us</h3>

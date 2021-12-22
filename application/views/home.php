@@ -3,7 +3,7 @@
     <?= $this->session->flashdata('message') ?>
     <div class="content">
         <h3>HOLIDAY FOR HOLIYAY</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia repellat aperiam libero, beatae debitis iusto quia sit aliquid placeat facilis?</p>
+        <p>Its time for holiday, with better day</p>
         <a href="<?= base_url() ?>destination" class="btn">get started</a>
     </div>
 
