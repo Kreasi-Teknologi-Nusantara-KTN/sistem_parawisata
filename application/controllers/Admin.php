@@ -379,6 +379,7 @@ class Admin extends CI_Controller
         }
     }
 
+
     public function hapusPengelola($id)
     {
         $where = array('id' => $id);
@@ -387,6 +388,55 @@ class Admin extends CI_Controller
         Berhasil Menghapus Data Pengelola
         </div>');
         redirect('Admin/Pengelola');
+    }
+    public function verifikasi($id)
+    {
+        $id_user = $this->db->query("SELECT email FROM user WHERE is_active = 0 AND id = $id")->row_array();
+        $email = implode($id_user);
+        if ($id_user) {
+            $this->ModelAkun->verifikasi_user($id, $email);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            User sudah menjadi pengelola!
+            </div>');
+            redirect('Admin/pengelola');
+        } else {
+            $this->_sendEmail();
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success" role="alert"> User sudah menjadi pengelola!
+            </div>'
+            );
+            redirect('Admin/pengelola');
+        }
+    }
+
+    private function _sendEmail()
+    {
+        $config = [
+
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_user' => 'inwananwar9b@gmail.com',
+            'smtp_pass' => 'Politeknik99',
+            'smtp_port' => '465',
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n"
+        ];
+        $this->load->library('email');
+        $this->email->initialize($config);
+
+        $this->email->from('inwananwar9b@gmail.com', 'Inwan Anwar Solihudin');
+        $this->email->to($this->input->post('email'));
+        $this->email->subject('Notifikasi Hak Akses Pengelola');
+        $this->email->message('Mohon maaf, akun anda belum dapat kami setujui untuk menjadi pengelola');
+
+        if ($this->email->send()) {
+            return true;
+        } else {
+            echo $this->email->print_debugger();
+            die;
+        }
     }
 
     public function parawisata()

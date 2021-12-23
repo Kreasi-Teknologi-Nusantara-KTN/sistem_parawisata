@@ -106,24 +106,28 @@ class Login extends CI_Controller
             $this->load->view('login/register');
             $this->load->view('login/templates/footer');
         } else {
+            $email = $this->input->post('email', true);
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama')),
-                'email' => htmlspecialchars($this->input->post('email')),
+                'email' => htmlspecialchars($email),
                 'jenkel' => htmlspecialchars($this->input->post('jenkel')),
                 'alamat' => htmlspecialchars($this->input->post('alamat')),
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role' => 2,
-                'is_active' => 1,
+                'is_active' => 0,
                 'date_created' => time(),
             ];
             $this->db->insert('user', $data);
+            $token = base64_encode(random_bytes(32));
             $this->session->set_flashdata(
                 'message',
-                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Login</div>'
+                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Tunggu Verifikasi Admin</div>'
             );
             redirect('login');
         }
     }
+
+
 
     public function logout()
     {
