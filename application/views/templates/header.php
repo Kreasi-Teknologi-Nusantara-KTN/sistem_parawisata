@@ -27,7 +27,7 @@
             <nav class="navbar">
                 <a href="<?= base_url() ?>">home</a>
                 <a href="<?= base_url() ?>destination">destination</a>
-                <a href="" data-toggle="modal" data-target="#addModal">Pengajuan Wisata</a>
+                <a href="">Pengajuan Wisata</a>
                 <a href="<?= base_url() ?>login">login</a>
             </nav>
         </header>

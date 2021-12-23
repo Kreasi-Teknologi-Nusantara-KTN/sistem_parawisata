@@ -29,10 +29,10 @@ class Pengajuan extends CI_Controller
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Berhasil pengajuan! Mohon tunggu persetujuan Admin
         </div>');
-                redirect('Home');
+                redirect('Pengelola');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-                redirect('Home');
+                redirect('Pengelola');
             }
         }
     }
