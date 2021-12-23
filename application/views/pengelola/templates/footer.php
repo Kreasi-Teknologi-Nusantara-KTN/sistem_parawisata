@@ -80,7 +80,7 @@
                             <textarea name="informasi" id="" class="form-control"></textarea>
                             <input type="hidden" name="status" value="Belum disetujui">
                         </div>
-
+                        <input type="hidden" name="id_pengelola" value="<?= $this->session->userdata('id_pengelola'); ?>">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

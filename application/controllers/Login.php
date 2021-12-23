@@ -42,6 +42,7 @@ class Login extends CI_Controller
                     $data = [
                         'email' => $user['email'],
                         'role' => $user['role'],
+                        'id_pengelola' => $user['id']
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role'] == 1) {

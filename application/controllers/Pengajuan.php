@@ -10,6 +10,7 @@ class Pengajuan extends CI_Controller
         $fitur = $this->input->post('fitur');
         $informasi = $this->input->post('informasi');
         $status = $this->input->post('status');
+        $id = $this->input->post('id_pengelola');
         if ($upload_gambar) {
             $config['allowed_types'] = 'gif|jpg|jpeg|png';
             $config['max_size'] = '2000';
@@ -23,7 +24,8 @@ class Pengajuan extends CI_Controller
                     'lokasi' => $lokasi,
                     'fitur' => $fitur,
                     'informasi_wisata' => $informasi,
-                    'status' => $status
+                    'status' => $status,
+                    'id_pengelola' => $id
                 ];
                 $this->ModelPengajuan->add('wisata', $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">

@@ -16,15 +16,21 @@ class ModelPengajuan extends CI_Model
         return $this->db->get_where($table, $where);
     }
 
-    public function update($table,$where,$data){		
-      $res = $this->db->update($table,$where,$data);
-      return $res;
-   }
-
-   public function delete($table,$where)
+    public function update($table, $where, $data)
     {
-      $res = $this->db->delete($table,$where);
-       return $res;
+        $res = $this->db->update($table, $where, $data);
+        return $res;
+    }
+
+    public function join($id)
+    {
+        return $this->db->query("SELECT * FROM wisata JOIN user ON wisata.id_pengelola = user.id WHERE id_wisata = $id");
+    }
+
+    public function delete($table, $where)
+    {
+        $res = $this->db->delete($table, $where);
+        return $res;
     }
 
     public function verifikasi($status, $id)

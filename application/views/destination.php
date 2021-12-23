@@ -9,7 +9,7 @@
             <h3><?= $wst['nama_wisata'] ?></h3>
             <h4><?= $wst['lokasi'] ?></h4>
             <p><?= $wst['informasi_wisata'] ?></p>
-            <a href="destinationPage.html" class="btn">learn more</a>
+            <a href="<?= base_url('Destination/destinasi/' . $wst['id_wisata']); ?>" class="btn">learn more</a>
             <div class="icons">
                 <p> <i class="far fa-clock"></i> 2 hours </p>
                 <p> <i class="far fa-calendar"></i> 6 months </p>
