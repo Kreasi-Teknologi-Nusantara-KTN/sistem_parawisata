@@ -40,7 +40,7 @@
 </div>
 <!-- Modal tambah data -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document" style="font-size: 1.5rem;">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="adddataModalLabel">Pengajuan Wisata</h5>
