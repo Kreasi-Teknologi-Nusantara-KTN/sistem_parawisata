@@ -34,8 +34,10 @@
                             <h2><strong><?= $wst['nama'] ?></strong></h2>
                             <h3><?= $wst['email'] ?></h3>
                             <h3><?= $wst['alamat'] ?></h3>
-                            <button type="button" class="btn btn-block btn-success "><a href="">Live View</a></button>
-                            <button type="button" class="btn btn-block btn-success "><a href="">Chat</a></button>
+                            <?php $url = prep_url($wst['link']) ?>
+                            <button type="button" class="btn btn-block btn-success "><a href="<?= $url; ?>" target="_blank">Live View</a></button>
+                            <?php $url1 = prep_url('https://wa.me/' . $wst['kontak']) ?>
+                            <button type="button" class="btn btn-block btn-success "><a href="<?= $url1; ?>">Chat</a></button>
                         </div>
                     </div>
                 </div>
