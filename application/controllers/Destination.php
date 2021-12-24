@@ -13,7 +13,6 @@ class Destination extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-
     public function destinasi($id)
     {
         //poin rekomendasi

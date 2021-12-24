@@ -404,7 +404,6 @@ class Admin extends CI_Controller
         $id_user = $this->db->query("SELECT email FROM user WHERE is_active = 0 AND id = $id")->row_array();
         $email = implode($id_user);
         $config = [
-
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_user' => 'inwananwar9b@gmail.com',
@@ -442,9 +441,34 @@ class Admin extends CI_Controller
 
     public function profile()
     {
+        $data = [
+            'profile' =>  $this->db->get_where('user', ['id' => $this->session->userdata('id_pengelola')])->row_array()
+        ];
+
         $this->load->view('admin/templates/header');
         $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/profile');
+        $this->load->view('admin/profile', $data);
         $this->load->view('admin/templates/footer');
+    }
+
+    public function editProfile($id)
+    {
+        $id_user = ['id' => $id];
+
+        $nama = $this->input->post('nama');
+        $email = $this->input->post('email');
+        $jenkel = $this->input->post('jenkel');
+        $alamat = $this->input->post('alamat');
+
+        $data = [
+            'nama' => $nama,
+            'email' => $email,
+            'jenkel' => $jenkel,
+            'alamat' => $alamat
+        ];
+        $this->ModelAkun->update('user', $data, $id_user);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Berhasil Ubah Profil!</div>');
+        return redirect('Admin');
     }
 }
