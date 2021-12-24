@@ -85,6 +85,7 @@ class Login extends CI_Controller
         );
         $this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('kontak', 'Kontak', 'required|trim');
         $this->form_validation->set_rules(
             'password1',
             'Password',
@@ -112,6 +113,7 @@ class Login extends CI_Controller
                 'email' => htmlspecialchars($email),
                 'jenkel' => htmlspecialchars($this->input->post('jenkel')),
                 'alamat' => htmlspecialchars($this->input->post('alamat')),
+                'kontak' => htmlspecialchars($this->input->post('kontak')),
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role' => 2,
                 'is_active' => 0,

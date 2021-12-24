@@ -34,7 +34,8 @@
                             <h2><strong><?= $wst['nama'] ?></strong></h2>
                             <h3><?= $wst['email'] ?></h3>
                             <h3><?= $wst['alamat'] ?></h3>
-                            <button type="button" class="btn btn-block btn-success ">Chat</button>
+                            <button type="button" class="btn btn-block btn-success "><a href="">Live View</a></button>
+                            <button type="button" class="btn btn-block btn-success "><a href="">Chat</a></button>
                         </div>
                     </div>
                 </div>

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Des 2021 pada 18.33
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.3.7
+-- Generation Time: Dec 24, 2021 at 04:01 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
@@ -34,7 +33,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`id`, `nama_role`) VALUES
@@ -44,7 +43,7 @@ INSERT INTO `role` (`id`, `nama_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -53,6 +52,7 @@ CREATE TABLE `user` (
   `email` varchar(128) NOT NULL,
   `jenkel` varchar(128) NOT NULL,
   `alamat` varchar(128) NOT NULL,
+  `kontak` varchar(15) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
@@ -60,22 +60,24 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `email`, `jenkel`, `alamat`, `password`, `role`, `is_active`, `date_created`) VALUES
-(8, 'Inwan Anwar Solihudin', 'inwananwar@gmail.com', 'laki-laki', 'Purwakarta', '$2y$10$rKu2UdBvTHEJh43Qob6J8.irVwoTpErE.VCET4xJ3NGzqti4dDDqe', 1, 1, 1639376954),
-(9, 'febri', 'febri@gmail.com', 'laki-laki', 'subang', '$2y$10$O8TVPa8oPE1isXsn31mOWeEMURqdGMXBBZt5GVvv6jSVDukgpBmAm', 2, 1, 1640160997),
-(10, 'admin', 'admin@admin.com', 'laki-laki', 'subang', '$2y$10$oHlfmnMw/TOML1AHdWOKsuzT/uBjiIRtPS2OPbZHv59K2MtU1LMfW', 1, 1, 1640185013);
+INSERT INTO `user` (`id`, `nama`, `email`, `jenkel`, `alamat`, `kontak`, `password`, `role`, `is_active`, `date_created`) VALUES
+(8, 'Inwan Anwar Solihudin', 'inwananwar@gmail.com', 'laki-laki', 'Purwakarta', '', '$2y$10$rKu2UdBvTHEJh43Qob6J8.irVwoTpErE.VCET4xJ3NGzqti4dDDqe', 1, 1, 1639376954),
+(9, 'febri', 'febri@gmail.com', 'laki-laki', 'subang', '085723260587', '$2y$10$O8TVPa8oPE1isXsn31mOWeEMURqdGMXBBZt5GVvv6jSVDukgpBmAm', 2, 1, 1640160997),
+(10, 'admin', 'admin@admin.com', 'laki-laki', 'subang', '', '$2y$10$oHlfmnMw/TOML1AHdWOKsuzT/uBjiIRtPS2OPbZHv59K2MtU1LMfW', 1, 1, 1640185013),
+(11, 'febrian', 'febrian@gmail.com', 'laki-laki', 'suban', '089123456123', '$2y$10$OvztgGmlw7xgI.Xh9FHtce2UnNuBtJg1OeBX1u2cw4eRhzatSz6Hm', 2, 1, 1640313631);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `wisata`
+-- Table structure for table `wisata`
 --
 
 CREATE TABLE `wisata` (
   `id_wisata` int(11) NOT NULL,
+  `id_pengelola` int(11) NOT NULL,
   `nama_wisata` varchar(128) NOT NULL,
   `lokasi` varchar(128) NOT NULL,
   `fitur` varchar(128) NOT NULL,
@@ -87,56 +89,69 @@ CREATE TABLE `wisata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `wisata`
+-- Dumping data for table `wisata`
 --
 
-INSERT INTO `wisata` (`id_wisata`, `nama_wisata`, `lokasi`, `fitur`, `informasi_wisata`, `status`, `gambar`, `link`, `map`) VALUES
-(1, 'Kewirausahaan', 'Purwakarta', 'jfkfasdf', 'sdahfjkhasjflasjfs', 'Sudah disetujui', 'MH.JPG', '', ''),
-(2, 'subang karya', 'subang kota', 'show off karya anak subang', 'gambar', 'Sudah disetujui', 'wallhaven-3z72w9.jpg', 'google.com', '');
+INSERT INTO `wisata` (`id_wisata`, `id_pengelola`, `nama_wisata`, `lokasi`, `fitur`, `informasi_wisata`, `status`, `gambar`, `link`, `map`) VALUES
+(1, 9, 'Kewirausahaan', 'Purwakarta', 'jfkfasdf', 'sdahfjkhasjflasjfs', 'Belum disetujui', 'MH.JPG', '', ''),
+(2, 9, 'subang karya', 'subang kota', 'show off karya anak subang', 'gambar', 'Sudah disetujui', 'wallhaven-3z72w9.jpg', 'google.com', ''),
+(3, 9, 'Pantai Lagoi', 'Batam', 'Akomodasi Hotel dan Restoran terdekat', 'Pantai Lagoi', 'Belum disetujui', '1.jpeg', '', ''),
+(4, 9, 'Batam Dreamland', 'Batam', 'Akomodasi Hotel dan Restoran terdekat', 'Indahhhh', 'Sudah disetujui', '2.jpeg', '', '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `wisata`
+-- Indexes for table `wisata`
 --
 ALTER TABLE `wisata`
-  ADD PRIMARY KEY (`id_wisata`);
+  ADD PRIMARY KEY (`id_wisata`),
+  ADD KEY `id_pengelola` (`id_pengelola`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `role`
+-- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `wisata`
+-- AUTO_INCREMENT for table `wisata`
 --
 ALTER TABLE `wisata`
-  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `wisata`
+--
+ALTER TABLE `wisata`
+  ADD CONSTRAINT `wisata_ibfk_1` FOREIGN KEY (`id_pengelola`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
