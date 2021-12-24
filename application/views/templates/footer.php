@@ -1,6 +1,6 @@
 <!-- footer section  -->
-
-<section class="footer">
+<br>
+<section class="footer" style="background-color: aliceblue; border-radius: 5px;">
     <div class="box-container">
         <div class="box">
             <h3>about us</h3>
@@ -16,7 +16,7 @@
         <div class="box">
             <h3>contact us</h3>
             <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
-            <p> <i class="fas fa-envelope"></i> abc@gmail.com </p>
+            <p> <i class="fas fa-envelope"></i> admin@gmail.com </p>
             <p> <i class="fas fa-map-marker-alt"></i> Indonesia </p>
         </div>
     </div>
