@@ -43,12 +43,12 @@
                     <i class="fas fa-user-tie"></i>
                     <span>Pengelola</span></a>
             </li>
-
+            <!-- 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('admin/parawisata') ?>">
                     <i class="fas fa-route"></i>
                     <span>Saran Pariwisata</span></a>
-            </li>
+            </li> -->
 
 
 

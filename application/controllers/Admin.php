@@ -432,13 +432,13 @@ class Admin extends CI_Controller
         }
     }
 
-    public function parawisata()
-    {
-        $this->load->view('admin/templates/header');
-        $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/parawisata');
-        $this->load->view('admin/templates/footer');
-    }
+    // public function parawisata()
+    // {
+    //     $this->load->view('admin/templates/header');
+    //     $this->load->view('admin/templates/sidebar');
+    //     $this->load->view('admin/parawisata');
+    //     $this->load->view('admin/templates/footer');
+    // }
 
     public function profile()
     {
