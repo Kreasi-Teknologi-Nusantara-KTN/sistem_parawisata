@@ -42,7 +42,7 @@
                    <td>Sudah diverifikasi</td>
                  <?php } ?>
                  <td>
-                   <a href="<?= base_url('Admin/verifikasi/' . $pen['id']); ?>" class="btn btn-success">Verifikasi</a>
+                   <a href="#" data-toggle="modal" data-target="#verifikasiModal<?= $pen['id']; ?>" class="btn btn-success">Verifikasi</a>
                    <button type="button" class="btn btn-warning btn-circle mb-2" data-toggle="modal" data-target="#editModal<?php echo $pen['id']; ?>">
                      <i class="fas fa-pen-square"></i>
                    </button>
@@ -230,6 +230,35 @@
    </div>
    <!-- End Modal Delete -->
  <?php } ?>
+ <!-- Modal Verifikasi -->
+ <?php foreach ($peng as $penn) : ?>
+   <div class="modal fade" id="verifikasiModal<?= $penn['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="adddataModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="adddataModalLabel">Verifikasi Pengelola</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <div class="card-body">
+             <div class="form-group">
+               <div class="row">
+                 <div class="col-md-6">
+                   <a href="<?= base_url('Admin/verifikasi/' . $penn['id']) ?>" class="btn btn-primary">Terima</a>
+                 </div>
+                 <div class="col-md-6">
+                   <a href="<?= base_url('Admin/sendEmail/' . $penn['id']) ?>" class="btn btn-danger">Tolak</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ <?php endforeach; ?>
 
  <script>
    function deleteConfirm(url) {

@@ -393,25 +393,16 @@ class Admin extends CI_Controller
     {
         $id_user = $this->db->query("SELECT email FROM user WHERE is_active = 0 AND id = $id")->row_array();
         $email = implode($id_user);
-        if ($id_user) {
-            $this->ModelAkun->verifikasi_user($id, $email);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            User sudah menjadi pengelola!
-            </div>');
-            redirect('Admin/pengelola');
-        } else {
-            $this->_sendEmail();
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-success" role="alert"> User sudah menjadi pengelola!
-            </div>'
-            );
-            redirect('Admin/pengelola');
-        }
+        $this->ModelAkun->verifikasi_user($id, $email);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            User sudah menjadi pengelola!</div>');
+        redirect('Admin/pengelola');
     }
 
-    private function _sendEmail()
+    public function sendEmail($id)
     {
+        $id_user = $this->db->query("SELECT email FROM user WHERE is_active = 0 AND id = $id")->row_array();
+        $email = implode($id_user);
         $config = [
 
             'protocol' => 'smtp',
@@ -427,12 +418,14 @@ class Admin extends CI_Controller
         $this->email->initialize($config);
 
         $this->email->from('inwananwar9b@gmail.com', 'Inwan Anwar Solihudin');
-        $this->email->to($this->input->post('email'));
+        $this->email->to($email);
         $this->email->subject('Notifikasi Hak Akses Pengelola');
         $this->email->message('Mohon maaf, akun anda belum dapat kami setujui untuk menjadi pengelola');
 
         if ($this->email->send()) {
-            return true;
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Menolak permintaan verifikasi!</div>');
+            return redirect('Admin/pengelola');
         } else {
             echo $this->email->print_debugger();
             die;
