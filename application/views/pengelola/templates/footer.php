@@ -80,6 +80,15 @@
                             <textarea name="informasi" id="" class="form-control"></textarea>
                             <input type="hidden" name="status" value="Belum disetujui">
                         </div>
+                        <div class="form-group">
+                            <label for="linkMap">live View</label>
+                            <input type="text" class="form-control" id="namawisata" placeholder="masukan ip/alamat camera">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="linkMap">link maps</label>
+                            <input type="text" class="form-control" id="namawisata" placeholder="masukan alamat google maps">
+                        </div>
                         <input type="hidden" name="id_pengelola" value="<?= $this->session->userdata('id_pengelola'); ?>">
                     </div>
                     <div class="modal-footer">
