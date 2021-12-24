@@ -24,13 +24,6 @@ class Pengelola extends CI_Controller
         $this->load->view('pengelola/templates/footer');
     }
 
-    public function chat()
-    {
-        $this->load->view('pengelola/templates/header');
-        $this->load->view('pengelola/templates/sidebar');
-        $this->load->view('pengelola/chat');
-        $this->load->view('pengelola/templates/footer');
-    }
 
     public function profile()
     {
@@ -42,5 +35,3 @@ class Pengelola extends CI_Controller
 
   
 }
-
-?>

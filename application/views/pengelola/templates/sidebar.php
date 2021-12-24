@@ -39,12 +39,6 @@
                     <i class="fas fa-info-circle"></i>
                     <span>Informasi Parawisata</span></a>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('pengelola/chat') ?>">
-                    <i class="fas fa-comments"></i>
-                    <span>Chat</span></a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="" data-toggle="modal" data-target="#addModal">
                     <i class="fas fa-comments"></i>
