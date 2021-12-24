@@ -18,6 +18,7 @@
                <th>Nama Pengelola</th>
                <th>Jenkel</th>
                <th>Alamat</th>
+               <th>Kontak</th>
                <th>Status</th>
                <th>Action</th>
              </tr>
@@ -35,6 +36,7 @@
                  <td><?= $pen['nama']; ?></td>
                  <td><?= $pen['jenkel']; ?></td>
                  <td><?= $pen['alamat']; ?></td>
+                 <td><?= $pen['kontak']; ?></td>
                  <?php
                   if ($pen['is_active'] == 0) { ?>
                    <td>Belum diverifikasi</td>
@@ -57,6 +59,7 @@
                <th>Nama Pengelola</th>
                <th>Jenkel</th>
                <th>Alamat</th>
+               <th>Kontak</th>
                <th>Action</th>
              </tr>
            </tfoot>
@@ -96,7 +99,9 @@
              </div>
              <div class="form-group">
                <input type="text" class="form-control " id="alamat" name="alamat" placeholder="Alamat">
-
+             </div>
+             <div class="form-group">
+               <input type="text" class="form-control " id="kontak" name="kontak" placeholder="kontak">
              </div>
              <div class="form-group row">
                <div class="col-sm-6 mb-3 mb-sm-0">
@@ -165,6 +170,10 @@
                <div class="form-group">
                  <label for="alamat">Alamat</label>
                  <input type="text" class="form-control" name="alamat" id="alamat" placeholder="" value="<?= $pen['alamat'] ?>">
+               </div>
+               <div class="form-group">
+                 <label for="kontak">Kontak</label>
+                 <input type="text" class="form-control" name="kontak" id="kontak" placeholder="" value="<?= $pen['kontak'] ?>">
                </div>
                <label for="alamat">Masukan Password Baru</label>
                <div class="form-group row">
