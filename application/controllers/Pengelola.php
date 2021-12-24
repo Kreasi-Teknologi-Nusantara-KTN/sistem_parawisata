@@ -18,9 +18,13 @@ class Pengelola extends CI_Controller
 
     public function inf_parawisata()
     {
-        $this->load->view('pengelola/templates/header');
+        $data = [
+            'judul' => 'Informasi Pariwisata',
+            'info' => $this->ModelPengelola->get('wisata')
+        ];
+        $this->load->view('pengelola/templates/header', $data);
         $this->load->view('pengelola/templates/sidebar');
-        $this->load->view('pengelola/inf_parawisata');
+        $this->load->view('pengelola/inf_parawisata', $data);
         $this->load->view('pengelola/templates/footer');
     }
 
