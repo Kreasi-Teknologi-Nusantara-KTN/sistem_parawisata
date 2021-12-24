@@ -1,9 +1,9 @@
  <!-- Begin Page Content -->
  <div class="container-fluid">
    <!-- Page Heading -->
-   <div class="button mb-3">
+   <!-- <div class="button mb-3">
      <button type="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"><span><i class="fas fa-plus"></i></span> Tambah</button>
-   </div>
+   </div> -->
    <div class="card shadow mb-4">
      <div class="card-header py-3">
        <h6 class="m-0 font-weight-bold text-primary">Data Wisata</h6>
@@ -66,7 +66,7 @@
 
 
    <!-- Modal tambah data -->
-   <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+   <!-- <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-header">
@@ -117,7 +117,9 @@
          </div>
        </div>
      </div>
-   </div>
+   </div> -->
+
+
    <!-- Modal Verifikasi -->
    <?php foreach ($pengajuan as $ajukan1) : ?>
      <div class="modal fade" id="AccModal<?= $ajukan1['id_wisata']; ?>" tabindex="-1" role="dialog" aria-labelledby="adddataModalLabel" aria-hidden="true">
