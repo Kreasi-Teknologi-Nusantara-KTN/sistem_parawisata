@@ -22,6 +22,7 @@
                         <p>
                             <?= $rk['informasi_wisata'] ?>
                         </p>
+                        <a href="<?= base_url('Destination/recommended/' . $rk['id_wisata']); ?>" class="btn">learn more</a>
                     </div>
                 </div>
             <?php endforeach; ?>
