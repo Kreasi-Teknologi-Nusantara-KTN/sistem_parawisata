@@ -105,8 +105,13 @@
                </div>
 
                <div class="form-group">
+                 <label for="linkMap">live View</label>
+                 <input type="text" class="form-control" id="namawisata" placeholder="masukan ip/alamat camera">
+               </div>
+
+               <div class="form-group">
                  <label for="linkMap">link maps</label>
-                 <input type="text" class="form-control" id="namawisata" placeholder="">
+                 <input type="text" class="form-control" id="namawisata" placeholder="masukan alamat google maps">
                </div>
              </div>
            </form>
@@ -159,10 +164,14 @@
                    </div>
                  </div>
                </div>
+               <div class="form-group">
+                 <label for="linkMap">live View</label>
+                 <input type="text" class="form-control" id="namawisata" placeholder="masukan ip/alamat camera">
+               </div>
 
                <div class="form-group">
                  <label for="linkMap">link maps</label>
-                 <input type="text" class="form-control" id="namawisata" placeholder="">
+                 <input type="text" class="form-control" id="namawisata" placeholder="masukan alamat google maps">
                </div>
              </div>
            </form>
