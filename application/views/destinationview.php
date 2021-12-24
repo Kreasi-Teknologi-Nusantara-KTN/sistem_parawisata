@@ -48,9 +48,31 @@
                     <div class="title">
                         <h1>Map</h1>
                     </div>
-                    <div class="map">
-                        <?php $url = prep_url("//www.facebook.com"); ?>
-                        <iframe width="480" heigth="320" class="embed-responsive-item" src="<?= ($url) ?>" allowfullscreen></iframe>
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <?php $url = prep_url($wst['map']) ?>
+
+                            <iframe width="600" height="500" id="gmap_canvas" src="<?= $url ?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                            </iframe>
+                            <br>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 500px;
+                                    width: 600px;
+                                }
+                            </style>
+                            <a href="https://www.embedgooglemap.net"></a>
+                            <style>
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none !important;
+                                    height: 500px;
+                                    width: 600px;
+                                }
+                            </style>
+                        </div>
                     </div>
                 </div>
             </div>
