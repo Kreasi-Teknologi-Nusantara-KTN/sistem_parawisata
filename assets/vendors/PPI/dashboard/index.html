@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Influencer</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <style>
+    .content .card {
+    display: inline-table;
+    width: 300px;
+    height: 300px;
+    align-items: centers;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 5rem;
+  }
+  .content .card .btn {
+    padding: 0.5rem;
+    width: 100%;
+  }
+  
+  </style>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar elevation-4"style="background-color:#2639E4;">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="index.html" class="d-block text-white">Influencer</a>
+        </div>
+      </div>
+
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+  
+          <li class="nav-item">
+            <a href="index.html" class="nav-link text-white">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p>
+               Post
+              </p>
+            </a>
+          </li>  
+           <li class="nav-item">
+            <a href="Kontak.html" class="nav-link text-white">
+              <i class="nav-icon fas fa-comments"></i>
+              <p>
+                Kontak Pesan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="Pembayaran.html" class="nav-link text-white">
+              <i class="nav-icon fas fa-money-check-alt"></i>
+              <p>
+                Pembayaran
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="Aturprofile.html" class="nav-link text-white">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                Atur Profile
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link text-white">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                sign-out
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-3">
+          <div class="col-md-2">
+            <h1 class="m-0">Post List</h1>
+          </div><!-- /.col -->
+          <div class="col-md-6">
+            <a href="addjob.html">
+              <button class="btn btn-primary">Tambah Post</button>  
+            </a>       
+          </div><!-- /.col -->
+         
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row text-center">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="10">
+          <div class="card mt-5 text-center" >
+              <img src="../assets/img/paket-img/a.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h2 class="text-center"><strong>Booster Lite</strong></h2>
+                <p class="card-text">Instagram ,facebook</p>
+                <p class="card-text">Banyak Postingan : 1x</p>
+                <p class="card-text">File Postingan : Gambar</p>
+                <p class="card-text">Jenis Postingan : Story</p>
+                <p class="card-text">Durasi : 3 hari</p>
+                <h2>Harga : 50.000</h2>
+              </div>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
+                View
+              </button>
+            </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mt-5" >
+              <img src="../assets/img/paket-img/b.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h2 class="text-center"><strong>Booster Medium</strong></h2>
+                <p class="card-text">Instagram ,youtube</p>
+                <p class="card-text">Banyak Postingan : 1x</p>
+                <p class="card-text">File Postingan : Video</p>
+                <p class="card-text">Jenis Postingan : Story</p>
+                <p class="card-text">Durasi : 3 hari</p>
+                <h2>Harga : 100.000</h2>
+              </div>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
+                  View
+                </button>
+            </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card mt-5" >
+              <img src="../assets/img/paket-img/c.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h2 class="text-center"><strong>Booster Max</strong></h2>
+                <p class="card-text">Instagram ,twitter</p>
+                <p class="card-text">Banyak Postingan : 1x</p>
+                <p class="card-text">File Postingan : video</p>
+                <p class="card-text">Jenis Postingan : Post</p>
+                <p class="card-text">Durasi : 3 hari</p>
+                <h2>Harga : 150.000</h2>
+              </div>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">
+                View
+              </button>
+            </div>
+      </div>
+  </div>
+  </div>
+</section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer text-center">
+    <strong>Made with love by KTN Programmer</strong>
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<div class="modal fade" id="modal-xl">
+  <div class="modal-dialog modal-xl">
+  <div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Detail</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Post</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Judul</label>
+              <input type="email" class="form-control" id="judul" placeholder="Masukan Judul">
+            </div>
+                  <div class="form-group">
+                  <!-- instagram account -->
+                  <fieldset class="sosmed"> 
+                    <input class="instagram" type="checkbox" name="instagram" value="#" />
+                    <label for="instagram">Instagram</label>
+                  </fieldset>
+                  <fieldset class="ig">
+                      <div class="form-group">
+                        <div class="ig_input">
+                          <div class="row" style="padding-left: 20px;">
+                            <div class="col-sm-6">
+                              <fieldset>
+                                <input class="ig_post" type="checkbox" name="ig_post" value="#" />
+                                <label for="ig_post">Post</label>
+                              </fieldset>
+                              
+                            </div>
+                            <div class="col-sm-6">
+                              <fieldset class="igpost_val">
+                                <input type="number" min="0" id="igpost_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                                <div class="form-group">
+                                  <label>File Postingan</label>
+                                  <select class="form-control">
+                                    <option>Gambar</option>
+                                    <option>Video</option>
+                                  </select>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </div> 
+                          <div class="row" style="padding-left: 20px; padding-top: 10px;">
+                            <div class="col-sm-6">
+                              <fieldset>
+                                <input class="ig_story" type="checkbox" name="ig_story" value="#" />
+                                <label for="ig_story">Story</label>
+                              </fieldset>  
+                            </div>
+                            <div class="col-sm-6">
+                             <fieldset class="igstory_val">
+                              <input type="number" min="0" id="ig_story_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                              <div class="form-group">
+                                <label>File Postingan</label>
+                                <select class=" form-control">
+                                  <option>Gambar</option>
+                                  <option>Video</option>
+                                </select>
+                              </div>
+                            </fieldset>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputEstimatedBudget">Durasi</label>
+                              <input type="number" id="inputEstimatedBudget" class="form-control">
+                            </div>
+                          </div>    
+                        </div>  
+                      </div>
+                  </fieldset>
+
+                  
+                  <!-- facebook acount -->
+                  <fieldset class="sosmed">
+                      <input class="facebook" type="checkbox" name="facebook" value="#" />
+                      <label for="facebook">Facebook</label>
+                  </fieldset>
+                  <fieldset class="fb">
+                    <div class="form-group">
+                      <div class="fb_input">
+                        <div class="row" style="padding-left: 20px;">
+                          <div class="col-sm-6">
+                            <fieldset>
+                              <input class="fb_post" type="checkbox" name="fb_post" value="#" />
+                              <label for="fb_post">Post</label>
+                            </fieldset>
+                          </div>
+                          <div class="col-sm-6">
+                            <fieldset class="fbpost_val">
+                              <input type="number" min="0" id="fbpost_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                              <div class="form-group">
+                                <label>File Postingan</label>
+                                <select class=" form-control">
+                                  <option value="" disabled selected>File Postingan</option>
+                                  <option>Gambar</option>
+                                  <option>Video</option>
+                                </select>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div> 
+                        <div class="row" style="padding-left: 20px; padding-top: 10px;">
+                          <div class="col-sm-6">
+                            <fieldset>
+                              <input class="fb_story" type="checkbox" name="fb_story" value="#" />
+                              <label for="fb_story">Story</label>     
+                            </fieldset>  
+                          </div>
+                          <div class="col-sm-6">
+                           <fieldset class="fbstory_val">
+                            <input type="number" min="0" id="fb_story_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                            <div class="form-group">
+                              <label>File Postingan</label>
+                              <select class=" form-control">
+                                <option>Gambar</option>
+                                <option>Video</option>
+                              </select>
+                            </div>
+                           </fieldseet>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputEstimatedBudget">Durasi</label>
+                            <input type="number" id="inputEstimatedBudget" class="form-control">
+                          </div>
+                        </div>    
+                      </div>  
+                    </div>
+                  </fieldset>
+
+                  <!-- twitter account -->
+                  <fieldset class="sosmed">
+                      <input class="twitter" type="checkbox" name="twitter" value="#" />
+                      <label for="twitter">twitter</label>
+                  </fieldset>
+                  <fieldset class="tw">
+                    <div class="form-group">
+                      <div class="tw_input">
+                        <div class="row" style="padding-left: 20px;">
+                          <div class="col-sm-6">
+                            <fieldset>
+                              <input class="tw_post" type="checkbox" name="tw_post" value="#" />
+                              <label for="tw_post">Post</label>
+                            </fieldset>
+                          </div>
+                          <div class="col-sm-6">
+                            <fieldset class="twpost_val">
+                              <input type="number" min="0" id="twpost_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                              <div class="form-group">
+                                <label>File Postingan</label>
+                                <select class="form-control">
+                                  <option>Gambar</option>
+                                  <option>Video</option>
+                                </select>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div> 
+                        <div class="row" style="padding-left: 20px; padding-top: 10px;">
+                          <div class="col-sm-6">
+                            <fieldset>
+                              <input class="tw_story" type="checkbox" name="tw_story" value="#" />
+                              <label for="tw_story">Story</label>
+                            </fieldset>  
+                          </div>
+                          <div class="col-sm-6">
+                           <fieldset class="twstory_val">
+                            <input type="number" min="0" id="tw_story_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                            <div class="form-group">
+                              <label>File Postingan</label>
+                              <select class=" form-control">
+                                <option>Gambar</option>
+                                <option>Video</option>
+                              </select>
+                            </div>
+                           </fieldseet>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputEstimatedBudget">Durasi</label>
+                            <input type="number" id="inputEstimatedBudget" class="form-control">
+                          </div>
+                        </div>    
+                      </div>  
+                    </div>
+                  </fieldset>
+                  
+                  <!-- tiktok account -->
+                  <fieldset class="sosmed">
+                      <input class="tiktok" type="checkbox" name="tiktok" value="#" />
+                      <label for="tiktok">tiktok</label>
+                  </fieldset>
+                  <fieldset class="tik">
+                    <div class="form-group">
+                      <div class="tik_input">
+                        <div class="row" style="padding-left: 20px;">
+                          <div class="col-sm-6">
+                            <fieldset>
+                              <input class="tik_post" type="checkbox" name="tik_post" value="#" />
+                              <label for="tik_post">Post</label>
+                            </fieldset>
+                          </div>
+                          <div class="col-sm-6">
+                            <fieldset class="tikpost_val">
+                              <input type="number" min="0" id="tikpost_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                              <div class="form-group">
+                                <label>File Postingan</label>
+                                <select class=" form-control">
+                                  <option value="" disabled selected>Video</option>
+                                </select>
+                              </div>
+                            </fieldset>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputEstimatedBudget">Durasi</label>
+                            <input type="number" id="inputEstimatedBudget" class="form-control">
+                          </div>
+                        </div> 
+                      </div>  
+                    </div>
+                  </fieldset>
+
+                  <!-- youtube account -->
+                  <fieldset class="sosmed">
+                      <input class="youtube" type="checkbox" name="youtube" value="#" />
+                      <label for="youtube">youtube</label>
+                  </fieldset>
+                  <fieldset class="yt">
+                    <div class="form-group">
+                      <div class="yt_input">
+                        <div class="row" style="padding-left: 20px;">
+                          <div class="col-sm-6">
+                            <fieldset>
+                              <input class="yt_vid" type="checkbox" name="yt_vid" value="#" />
+                              <label for="yt_vid">Video</label>
+                            </fieldset>
+                          </div>
+                          <div class="col-sm-6">
+                            <fieldset class="yt_vid_val">
+                              <input type="number" min="0" id="yt_vid_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                              <div class="form-group">
+                                <label>File Postingan</label>
+                                <select class=" form-control">
+                                  <option value="" disabled selected>Video</option>
+                                </select>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div> 
+                        <div class="row" style="padding-left: 20px; padding-top: 10px;">
+                          <div class="col-sm-6">
+                            <fieldset>
+                              <input class="yt_stvideo" type="checkbox" name="yt_stvideo" value="#" />
+                              <label for="yt_stvideo">Short Video</label>
+                            </fieldset>  
+                          </div>
+                          <div class="col-sm-6">
+                           <fieldset class="ytst_val">
+                            <input type="number" min="0" id="ytst_v" placeholder="Jumlah" class="form-control" style="width: 100px;">
+                            <div class="form-group">
+                              <label>File Postingan</label>
+                              <select class=" form-control">
+                                <option value="" disabled selected>Video</option>
+                              </select>
+                            </div>
+                           </fieldseet>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputEstimatedBudget">Durasi</label>
+                            <input type="number" id="inputEstimatedBudget" class="form-control">
+                          </div>
+                        </div>    
+                      </div>  
+                    </div>
+                  </fieldset>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">Gambar</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="exampleInputFile" multiple>
+                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <div class="col-md-12">
+        <div class="card card-secondary">
+          <div class="card-header">
+            <h3 class="card-title">Post Price</h3>
+
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="inputEstimatedBudget">Harga</label>
+              <input type="number" id="inputEstimatedBudget" class="form-control">
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div>
+  </div>
+  <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+  </div>    
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<script src="dist/js/sclist.js"></script>
+</body>
+</html>

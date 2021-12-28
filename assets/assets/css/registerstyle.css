@@ -1,0 +1,66 @@
+body {
+    background: linear-gradient(270deg, #7700ff, #b0f5e4);
+    background-size: 400% 400%;
+    font-family: 'Poppins', sans-serif;
+
+    -webkit-animation: AnimationName 23s ease infinite;
+    -moz-animation: AnimationName 23s ease infinite;
+    animation: AnimationName 23s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 66%
+    }
+
+    50% {
+        background-position: 100% 35%
+    }
+
+    100% {
+        background-position: 0% 66%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 66%
+    }
+
+    50% {
+        background-position: 100% 35%
+    }
+
+    100% {
+        background-position: 0% 66%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 66%
+    }
+
+    50% {
+        background-position: 100% 35%
+    }
+
+    100% {
+        background-position: 0% 66%
+    }
+}
+
+.container {
+    padding: 10px;
+}
+
+.form-control {
+    font-size: 1rem;
+    padding: 1.5rem 1.5rem;
+}
+
+select.gender {
+    outline: none;
+    padding: 2px;
+    ;
+}

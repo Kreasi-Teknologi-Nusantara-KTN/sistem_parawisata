@@ -49,7 +49,9 @@ class Login extends CI_Controller
                         redirect('Admin');
                     } elseif ($user['role'] == 2) {
                         redirect('Pengelola');
-                    } else {
+                    }elseif ($user['role'] == 3) {
+                      redirect('Home/pengunjung');
+                  } else {
                         redirect('Home');
                     }
                 } else {

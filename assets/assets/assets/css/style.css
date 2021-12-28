@@ -1,0 +1,178 @@
+body {
+  background-color: #e2e2e2;
+  /* height: 1000vh; */
+}
+
+@media (min-width: 992px) {
+  .animate-menu {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
+}
+
+@keyframes slideIn-menu {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideIn-menu {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slideIn-menu {
+  -webkit-animation-name: slideIn-menu;
+  animation-name: slideIn-menu;
+}
+
+.jumbotron {
+  background: rgb(127, 127, 250);
+  background: -moz-linear-gradient(90deg, rgba(127, 127, 250, 1) 0%, rgba(0, 212, 255, 1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(127, 127, 250, 1) 0%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(90deg, rgba(127, 127, 250, 1) 0%, rgba(0, 212, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7f7ffa", endColorstr="#00d4ff", GradientType=1);
+  padding: 5rem 2rem;
+  height: 300px;
+}
+
+.jumbotron h1 {
+  padding-top: 50px;
+  color: azure;
+}
+
+#search {
+  margin-bottom: 4rem;
+  margin-top: 3rem;
+}
+
+.searchbt {
+  background-color: rgb(10, 55, 255);
+  border-radius: 10%;
+}
+
+.searchbt:hover {
+  background-color: rgb(18, 212, 212);
+}
+
+.searchbt button {
+  color: #e2e2e2;
+}
+
+.searchbt button:hover {
+  color: rgb(0, 0, 0);
+}
+
+#content {
+  padding: 1rem;
+  /* margin-top: 5rem; */
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+}
+
+#content .card {
+  display: inline-table;
+  width: 300px;
+  height: 300px;
+  align-items: centers;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-bottom: 5rem;
+}
+
+#content .card .btn {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+#aboutus {
+  color: #e2e2e2;
+  padding: 2rem;
+  background-color: rgb(79, 160, 252);
+  width: 100%;
+}
+
+.profile .container {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.profile .container .header {
+  padding: 2rem;
+  background: rgb(127, 127, 250);
+  background: -moz-linear-gradient(90deg, rgba(127, 127, 250, 1) 0%, rgba(0, 212, 255, 1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(127, 127, 250, 1) 0%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(90deg, rgba(127, 127, 250, 1) 0%, rgba(0, 212, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7f7ffa", endColorstr="#00d4ff", GradientType=1);
+}
+
+.profile .container h2 {
+  padding: 1px;
+  margin-top: 10px;
+}
+
+.profile .container .paket {
+  padding: 2rem;
+}
+
+.profile .container .paket .card {
+  margin-top: 2rem;
+}
+
+.profile .container .paket .card p {
+  margin: 10px;
+}
+
+
+.profile .container .paket .card h3 {
+  background-color: rgb(112, 53, 252);
+  color: #e2e2e2;
+}
+
+.profile .container .paket .card h3,
+h4 {
+  padding: 0.6rem;
+}
+
+.profile .container .testimoni {
+  padding-bottom: 200px;
+}
+
+.profile .container .testimoni img {
+  width: 200px;
+  height: 200px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+footer {
+  background-color: #222222;
+  position: absolute;
+  width: 100%;
+}
