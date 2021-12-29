@@ -256,6 +256,150 @@ class Admin extends CI_Controller
         redirect('Admin/Wisata');
     }
 
+    //pengunjung
+    public function pengunjung()
+    {
+
+        $data['peng']     = $this->ModelPengunjung->getpengunjung();
+        $this->load->view('admin/templates/header');
+        $this->load->view('admin/templates/sidebar');
+        $this->load->view('admin/pengunjung', $data);
+        $this->load->view('admin/templates/footer');
+    }
+
+    public function SavePengunjung()
+    {
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'trim|required|valid_email'
+        );
+        $this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules(
+            'password1',
+            'Password',
+            'required|trim|matches[password2]|min_length[4]',
+            [
+                'matches' => 'password tidak sama',
+                'min_lenght' => 'Password terlalu pendek',
+            ]
+        );
+        $this->form_validation->set_rules(
+            'password2',
+            'Password',
+            'required|trim|matches[password1]'
+        );
+
+        if ($this->form_validation->run() == false) {
+            $data['peng']     = $this->ModelPengunjung->getpengunjung();
+            $this->load->view('admin/templates/header');
+            $this->load->view('admin/templates/sidebar');
+            $this->load->view('admin/pengunjung', $data);
+            $this->load->view('admin/templates/footer');
+        } else {
+            $data = [
+                'nama' => htmlspecialchars($this->input->post('nama')),
+                'email' => htmlspecialchars($this->input->post('email')),
+                'jenkel' => htmlspecialchars($this->input->post('jenkel')),
+                'alamat' => htmlspecialchars($this->input->post('alamat')),
+                'kontak' => htmlspecialchars($this->input->post('kontak')),
+                'password' => password_hash(
+                    $this->input->post('password1'),
+                    PASSWORD_DEFAULT
+                ),
+                'role' => 3,
+                'is_active' => 0,
+                'date_created' => time(),
+            ];
+            $this->db->insert('user', $data);
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Login</div>'
+            );
+            redirect('Admin/Pengunjung');
+        }
+    }
+
+    public function verifikasi_pengunjung($id)
+    {
+        $id_user = $this->db->query("SELECT email FROM user WHERE is_active = 0 AND id = $id")->row_array();
+        $email = implode($id_user);
+        $this->ModelAkun->verifikasi_user($id, $email);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            User sudah menjadi pengunjung!</div>');
+        redirect('Admin/pengunjung');
+    }
+
+    function edit_pengunjung($id)
+    {
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'trim|required'
+        );
+        $this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules(
+            'password1',
+            'Password',
+            'required|trim|matches[password2]|min_length[4]',
+            [
+                'matches' => 'password tidak sama',
+                'min_lenght' => 'Password terlalu pendek',
+            ]
+        );
+        $this->form_validation->set_rules(
+            'password2',
+            'Password',
+            'required|trim|matches[password1]'
+        );
+
+        if ($this->form_validation->run() == false) {
+
+
+          $data['peng']     = $this->ModelPengunjung->getpengunjung();
+          $this->load->view('admin/templates/header');
+          $this->load->view('admin/templates/sidebar');
+          $this->load->view('admin/pengunjung', $data);
+          $this->load->view('admin/templates/footer');
+        } else {
+            $data = [
+                'id' => htmlspecialchars($this->input->post('id')),
+                'nama' => htmlspecialchars($this->input->post('nama')),
+                'email' => htmlspecialchars($this->input->post('email')),
+                'jenkel' => htmlspecialchars($this->input->post('jenkel')),
+                'alamat' => htmlspecialchars($this->input->post('alamat')),
+                'kontak' => htmlspecialchars($this->input->post('kontak')),
+                'password' => password_hash(
+                    $this->input->post('password1'),
+                    PASSWORD_DEFAULT
+                ),
+                'role' => htmlspecialchars($this->input->post('role')),
+                'is_active' => htmlspecialchars($this->input->post('is_active')),
+                'date_created' => htmlspecialchars($this->input->post('date_created')),
+            ];
+            $where = array('id' => $id);
+            $res = $this->ModelPengelola->update('user', $data, $where);
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Login</div>'
+            );
+            redirect('Admin/Pengunjung');
+        }
+    }
+
+    public function hapusPengunjung($id)
+    {
+        $where = array('id' => $id);
+        $res = $this->ModelPengunjung->delete('user', $where);
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+        Berhasil Menghapus Data Pengunjung
+        </div>');
+        redirect('Admin/Pengunjung');
+    }
 
     // pengelola
     public function pengelola()
@@ -305,12 +449,13 @@ class Admin extends CI_Controller
                 'email' => htmlspecialchars($this->input->post('email')),
                 'jenkel' => htmlspecialchars($this->input->post('jenkel')),
                 'alamat' => htmlspecialchars($this->input->post('alamat')),
+                'kontak' => htmlspecialchars($this->input->post('kontak')),
                 'password' => password_hash(
                     $this->input->post('password1'),
                     PASSWORD_DEFAULT
                 ),
                 'role' => 2,
-                'is_active' => 1,
+                'is_active' => 0,
                 'date_created' => time(),
             ];
             $this->db->insert('user', $data);
@@ -350,10 +495,11 @@ class Admin extends CI_Controller
         if ($this->form_validation->run() == false) {
 
 
-            $data['title'] = 'Registrasi';
-            $this->load->view('login/templates/header', $data);
-            $this->load->view('login/register');
-            $this->load->view('login/templates/footer');
+          $data['peng']     = $this->ModelPengelola->getpengelola();
+          $this->load->view('admin/templates/header');
+          $this->load->view('admin/templates/sidebar');
+          $this->load->view('admin/pengelola', $data);
+          $this->load->view('admin/templates/footer');
         } else {
             $data = [
                 'id' => htmlspecialchars($this->input->post('id')),
@@ -361,6 +507,7 @@ class Admin extends CI_Controller
                 'email' => htmlspecialchars($this->input->post('email')),
                 'jenkel' => htmlspecialchars($this->input->post('jenkel')),
                 'alamat' => htmlspecialchars($this->input->post('alamat')),
+                'kontak' => htmlspecialchars($this->input->post('kontak')),
                 'password' => password_hash(
                     $this->input->post('password1'),
                     PASSWORD_DEFAULT

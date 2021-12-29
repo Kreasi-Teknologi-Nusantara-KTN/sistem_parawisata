@@ -44,6 +44,12 @@
                     <span>Pengelola</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('admin/pengunjung') ?>">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Pengunjung</span></a>
+            </li>
+
             <!-- 
             <li class="nav-item">
                 <a class="nav-link" href="

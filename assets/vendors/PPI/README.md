@@ -1,3 +1,0 @@
-# ppi
-project KTN
-                                                                                         
