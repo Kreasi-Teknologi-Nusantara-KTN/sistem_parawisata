@@ -51,4 +51,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
+
+$route['dua'] = 'Chat/dua';
+
+$route['Chat'] = 'Chat';
+$route['menu'] = 'Chat/menu';
+$route['Chat/(:num)'] = 'Chat';
+$route['login'] = 'Chat/login';
+$route['register'] = 'Chat/Register';
+
 $route['translate_uri_dashes'] = FALSE;

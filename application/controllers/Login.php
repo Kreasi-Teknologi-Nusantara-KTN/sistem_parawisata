@@ -42,7 +42,8 @@ class Login extends CI_Controller
                     $data = [
                         'email' => $user['email'],
                         'role' => $user['role'],
-                        'id_pengelola' => $user['id']
+                        'id_pengelola' => $user['id'],
+                        'nama' => $user['nama']
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role'] == 1) {
@@ -59,7 +60,7 @@ class Login extends CI_Controller
                         'message',
                         '<div class="alert alert-danger" role="alert">Password salah</div>'
                     );
-                    redirect('login');
+                    redirect('login/login');
                 }
             } else {
                 $this->session->set_flashdata(

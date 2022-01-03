@@ -28,6 +28,6 @@
             <nav class="navbar">
                 <a href="<?= base_url() ?>">home</a>
                 <a href="<?= base_url() ?>destination">destination</a>
-                <a href="<?= base_url() ?>login">login</a>
+                <a href="<?= base_url() ?>Login">login</a>
             </nav>
         </header>

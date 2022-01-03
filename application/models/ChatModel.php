@@ -46,15 +46,15 @@ public function getData($u,$p)
 	public function getDataById($no)
 	{
 		$this->db->from('user');
-		$this->db->where('id_user', $no);
+		$this->db->where('id', $no);
 		return $sql = $this->db->get()->row();
 		# code...
 	}
-	public function GetAllOrangKecUser($id_user)
+	public function GetAllOrangKecUser($id)
 	{
 
 		$this->db->from('user');
-		$this->db->where('id_user!=', $id_user);
+		$this->db->where('id!=', $id);
 		return $sql = $this->db->get()->result();
 		# code...
 	}

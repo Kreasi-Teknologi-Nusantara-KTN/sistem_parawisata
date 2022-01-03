@@ -17,7 +17,7 @@
                                     </div>
                                     <?= $this->session->flashdata('message') ?>
                                     <form class="user" method="POST" action="<?= base_url(
-                                        'login'
+                                        'Login'
                                     ) ?>">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"

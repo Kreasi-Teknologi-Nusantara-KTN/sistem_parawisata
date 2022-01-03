@@ -7,7 +7,8 @@
 <html>
 <?php
 $this->load->view('style');
-$id = $_SESSION['id'];
+$id = $_SESSION['id_pengelola'];
+
 // var_dump($_SESSION);die;
 // var_dump($_SESSION['id']);die;
 ?>
@@ -115,28 +116,28 @@ $id = $_SESSION['id'];
 					</div>
 					<div class="card-body msg_card_body" id="letakpesan">
 						<div class="d-flex justify-content-start mb-4">
-							<div class="img_cont_msg">
+							<!-- <div class="img_cont_msg">
 								<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
 							</div>
 							<div class="msg_cotainer">
 								Hi, how are you samim?
 								<span class="msg_time">8:40 AM, Today</span>
-							</div>
+							</div> -->
 						</div>
 						<div class="d-flex justify-content-end mb-4">
-							<div class="msg_cotainer_send">
+							<!-- <div class="msg_cotainer_send">
 								Hi Khalid i am good tnx how about you?
 								<span class="msg_time_send">8:55 AM, Today</span>
-							</div>
+							</div> -->
 						</div>
 						<div class="d-flex justify-content-start mb-4">
-							<div class="img_cont_msg">
+							<!-- <div class="img_cont_msg">
 								<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
 							</div>
 							<div class="msg_cotainer">
 								I am good too, thank you for your chat template
 								<span class="msg_time">9:00 AM, Today</span>
-							</div>
+							</div> -->
 						</div>
 					</div>
 
@@ -171,11 +172,13 @@ $id = $_SESSION['id'];
 
 		function pesan() {
 			var id_lawan = '<?= $data->id ?>'
+      
 			$.ajax({
 				type: "post",
 				url: "<?= base_url() ?>Chat/loadChat",
 				data: {
-					id: '<?= $id ?>',
+
+					id_pesan: '<?= $id ?>',
 					id_lawan: id_lawan
 				},
 				dataType: "json",
@@ -205,10 +208,7 @@ $id = $_SESSION['id'];
 							kapan = tanggal_bulan
 						}
 						// console.log(kapan)
-						if (parseInt(d.id) == id) {
-
-
-
+						if (parseInt(d.id_user) == id) {
 
 							html += `<div class="d-flex justify-content-end mb-4">
 							<div class="msg_cotainer_send">
@@ -245,14 +245,15 @@ $id = $_SESSION['id'];
 
 		$('.send_btn').click(function(e) {
 			var pesan = $('.type_msg').val();
-			var id = '<?= $id ?>'
+			var id_user = '<?= $id ?>'
 			var id_lawan = '<?= $data->id ?>';
 			if (pesan != "") {
 				$.ajax({
 					type: "post",
-					url: "<?= base_url() ?>/Chat/KirimPesan",
+					url: "<?= base_url() ?>/chat/KirimPesan",
 					data: {
-						id,
+            
+						id_user,
 						id_lawan,
 						pesan
 					},
@@ -328,7 +329,6 @@ $id = $_SESSION['id'];
 
 		});
 
-
 		orang()
 
 		function orang() {
@@ -345,7 +345,7 @@ $id = $_SESSION['id'];
 					id = '<?= $id ?>';
 					d.forEach(d => {
 						html += `
-						<li class="active coba" data-id=${d.id}>
+					<li class="active coba" data-id=${d.id}>
 								<div class="d-flex bd-highlight ">
 									<div class="img_cont ">
 										<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
@@ -357,6 +357,7 @@ $id = $_SESSION['id'];
 									</div>
 								</div>
 							</li>`;
+             
 
 					});
 					$('#yangAktif').html(html);
@@ -365,8 +366,7 @@ $id = $_SESSION['id'];
 		}
 		$('body').on('click', '.coba', function() {
 			var id = $(this).attr('data-id');
-			window.location.replace("<?= base_url() ?>Chat/" + id);
-
+			window.location.replace("<?= base_url() ?>chat/" + id);
 		});
 
 

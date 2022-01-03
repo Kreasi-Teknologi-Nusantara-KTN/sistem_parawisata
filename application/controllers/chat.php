@@ -16,19 +16,16 @@ class Chat extends CI_Controller
 
 	public function index()
 	{
-		if ($_SESSION['id'] == null) {
-
-			redirect('chat/login', 'refresh');
-		} else {
+		
 			$no =  $this->uri->segment(2);
 			$data['data'] = $this->ChatModel->getDataById($no);
 			if ($data == null) {
 				die("user tidak ada nih");
 			} else {
-				// var_dump($data);die;
-				$this->load->view('chat', $data);
+				
+				$this->load->view('Chat', $data);
 			}
-		}
+		
 	}
 	public function dua()
 	{
@@ -36,7 +33,7 @@ class Chat extends CI_Controller
 	}
 	public function loadChat()
 	{
-		$id = 	$this->input->post('id');
+		$id = 	$this->input->post('id_pesan');
 		$id_lawan = 	$this->input->post('id_lawan');
 		$data = $this->ChatModel->getPesan($id, $id_lawan);
 
@@ -51,13 +48,15 @@ class Chat extends CI_Controller
 		$now = date("Y-m-d H:i:s");
 		// var_dump($now);die;
 		$pesan = $this->input->post('pesan');
-		$id = $this->input->post('id');
+		$id = $this->input->post('id_pesan');
+    $id_user = $this->input->post('id_user');
 		$id_lawan = $this->input->post('id_lawan');
 
 		// $id =2;
 		// $id_lawan =1;
 		$in = array(
-			'id' => $id,
+			'id_pesan' => $id,
+      'id_user' => $id_user,
 			'id_lawan' => $id_lawan,
 			'isi' => $pesan,
 			'waktu' => $now,
@@ -110,13 +109,10 @@ class Chat extends CI_Controller
   }
 	public function menu()
 	{
-		if ($_SESSION['id'] == null) {
-
-			redirect('chat/login', 'refresh');
-		} else {
+		
 				$this->load->view('menu');
 			
-		}
+		
 		# code...
 	}
 	public function GetAllOrang()
