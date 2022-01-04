@@ -47,7 +47,7 @@ $id = $_SESSION['id_pengelola'];
 									
 									<div class="user_info_ku iconya">
 										<span class="">
-                    <a href="../Home/pengunjung"><i class="fas fa-sign-out-alt" style="
+                    <a href="../../Pengelola"><i class="fas fa-sign-out-alt" style="
 											color: aliceblue;
 											margin-top: 10px;
 										"></i></a>
@@ -313,7 +313,7 @@ $id = $_SESSION['id_pengelola'];
 		function orang() {
 			$.ajax({
 				type: "post",
-				url: "<?= base_url() ?>Chat/GetAllOrang",
+				url: "<?= base_url() ?>Chat/GetAllPengunjung",
 				data: {
 					id: '<?= $id ?>'
 				},
@@ -345,7 +345,7 @@ $id = $_SESSION['id_pengelola'];
 		}
 		$('body').on('click', '.coba', function() {
 			var id = $(this).data('id');
-			window.location.replace("<?= base_url() ?>Chat/" + id);
+			window.location.replace("<?= base_url() ?>Chat/chatPengelola/" + id);
 		});
 
 

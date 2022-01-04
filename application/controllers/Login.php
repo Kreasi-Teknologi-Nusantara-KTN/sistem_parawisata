@@ -60,7 +60,7 @@ class Login extends CI_Controller
                         'message',
                         '<div class="alert alert-danger" role="alert">Password salah</div>'
                     );
-                    redirect('login/login');
+                    redirect('login');
                 }
             } else {
                 $this->session->set_flashdata(
@@ -143,6 +143,6 @@ class Login extends CI_Controller
             'message',
             '<div class="alert alert-success" role="alert">Berhasil Logout</div>'
         );
-        redirect('login');
+        redirect('login/index');
     }
 }

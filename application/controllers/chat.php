@@ -27,6 +27,19 @@ class Chat extends CI_Controller
 			}
 		
 	}
+  public function chatPengelola()
+	{
+		
+			$no =  $this->uri->segment(3);
+			$data['data'] = $this->ChatModel->getDataById($no);
+			if ($data == null) {
+				die("user tidak ada nih");
+			} else {
+				
+				$this->load->view('pengelola/chatPengelola', $data);
+			}
+		
+	}
 	public function dua()
 	{
 		$this->load->view('dua');
@@ -115,10 +128,30 @@ class Chat extends CI_Controller
 		
 		# code...
 	}
+
+  public function menuPengelola()
+	{
+		
+				$this->load->view('pengelola/menuPengelola');
+			
+		
+		# code...
+	}
 	public function GetAllOrang()
 	{
 		$id = $this->input->post('id');
-		$data = $this->ChatModel->GetAllOrangKecUser($id);
+		$data = $this->ChatModel->GetAllOrangKecUser();
+
+		echo json_encode(array(
+			'data' => $data
+		));
+
+		# code...
+	}
+  public function GetAllPengunjung()
+	{
+		$id = $this->input->post('id');
+		$data = $this->ChatModel->GetAllOrangPengunjung();
 
 		echo json_encode(array(
 			'data' => $data
@@ -127,10 +160,10 @@ class Chat extends CI_Controller
 		# code...
 	}
 	public function logout()
-	{
+	{ 
 
 		$this->session->sess_destroy();
-			$pesan="Berhasil Keluar, Anda Akan Diarahkan Ke Halaman Login";
+			$pesan="Berhasil Keluar";
 			$status = true;
 		
 

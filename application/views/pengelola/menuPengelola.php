@@ -164,7 +164,7 @@ $nama = $_SESSION['nama'];
 		function orang() {
 			$.ajax({
 				type: "post",
-				url: "<?= base_url() ?>Chat/GetAllOrang",
+				url: "<?= base_url() ?>Chat/GetAllPengunjung",
 				data: {
 					id: '<?= $id ?>'
 				},
@@ -186,7 +186,7 @@ $nama = $_SESSION['nama'];
 										
 									</div>
 								</div>
-							</li>`;
+							</li>`;--------------------------------------------------------------------
 
 					});
 					$('#yangAktif').html(html);
@@ -195,7 +195,7 @@ $nama = $_SESSION['nama'];
 		}
 		$('body').on('click', '.coba', function() {
 			var id = $(this).data('id');
-			window.location.replace("<?= base_url() ?>Chat/" + id);
+			window.location.replace("<?= base_url() ?>Chat/chatPengelola/" + id);
 
 		});
 

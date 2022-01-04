@@ -44,6 +44,11 @@
                     <i class="fas fa-comments"></i>
                     <span>Pengajuan Wisata</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="chat/menuPengelola">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

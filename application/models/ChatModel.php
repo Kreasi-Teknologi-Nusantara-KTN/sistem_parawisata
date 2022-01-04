@@ -50,14 +50,23 @@ public function getData($u,$p)
 		return $sql = $this->db->get()->row();
 		# code...
 	}
-	public function GetAllOrangKecUser($id)
+	public function GetAllOrangKecUser()
 	{
 
 		$this->db->from('user');
-		$this->db->where('id!=', $id);
+		$this->db->where('role', '2');
 		return $sql = $this->db->get()->result();
 		# code...
 	}
+  public function GetAllOrangPengunjung()
+	{
+
+		$this->db->from('user');
+		$this->db->where('role', '3');
+		return $sql = $this->db->get()->result();
+		# code...
+	}
+  
 	public function Tambah($tabel,$in)
 	{
 		$this->db->insert($tabel, $in);
