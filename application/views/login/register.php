@@ -74,6 +74,12 @@
                                         <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                                     </div>
                                 </div>
+                                <div class="form-group form-control-select ">
+                                    <select class="form-control selectBox" name="role">
+                                        <option value="2">Pengelola</option>
+                                        <option value="3">Pengujung</option>
+                                    </select>
+                                </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </button>

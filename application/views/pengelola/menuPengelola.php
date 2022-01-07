@@ -58,7 +58,7 @@ $nama = $_SESSION['nama'];
 									
 									<div class="user_info_ku iconya">
 										<span class="">
-											<a href="../Home/pengunjung"><i class="fas fa-sign-out-alt" style="
+											<a href="../Home/pengelola"><i class="fas fa-sign-out-alt" style="
 											color: aliceblue;
 											margin-top: 10px;
 										"></i></a>
@@ -186,7 +186,7 @@ $nama = $_SESSION['nama'];
 										
 									</div>
 								</div>
-							</li>`;--------------------------------------------------------------------
+							</li>`;
 
 					});
 					$('#yangAktif').html(html);

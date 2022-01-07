@@ -118,7 +118,7 @@ class Login extends CI_Controller
                 'alamat' => htmlspecialchars($this->input->post('alamat')),
                 'kontak' => htmlspecialchars($this->input->post('kontak')),
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'role' => 2,
+                'role' => htmlspecialchars($this->input->post('role')),
                 'is_active' => 0,
                 'date_created' => time(),
             ];
@@ -128,7 +128,7 @@ class Login extends CI_Controller
                 'message',
                 '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Tunggu Verifikasi Admin</div>'
             );
-            redirect('login');
+            redirect('Login');
         }
     }
 
