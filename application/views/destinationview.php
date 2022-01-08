@@ -80,17 +80,35 @@
                     </div>
                 </div>
             </div>
-
+            
             
 
         </div>
-        
+        <div class="container" style="padding:5px;">
+
+          <h3>Rekomendasi Wisata</h3>
+          <div class="row">
+
+            <?php foreach ($rekomendasi as $rk) : ?>
+              
+                <div class="col-md-4">
+                
+                    <div class="card" style="padding:5px;">
+                        <div class="card-header">
+                            <h5><?= $rk['nama_wisata'] . ', ' . $rk['lokasi'] ?></h5>
+                        </div>
+                        <img src="<?= base_url('assets/images/' . $rk['gambar']) ?>" class="img-thumbnail" alt="Belum Ada Gambar">
+                        <p>
+                            <?= $rk['informasi_wisata'] ?>
+                        </p>
+                        <a href="<?= base_url('Destination/recommended/' . $rk['id_wisata']); ?>" class="btn">Visit</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>    
+          </div>
         </div>
     </section>
 <?php endforeach; ?>
-<div class="container" style="padding:5px;">
 
-        <h3>Rekomendasi Wisata</h3>
-        
-    </div>
 

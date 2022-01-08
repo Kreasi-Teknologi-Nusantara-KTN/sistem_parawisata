@@ -70,16 +70,24 @@ class Destination extends CI_Controller
         //tampil wisata
         $judul = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
         $jdl = implode($judul);
+       $na = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
+       
+       $nam = implode($na);
+       $nama = substr($nam,0,5);
+       
         $data = [
             'wisata' => $this->ModelPengajuan->join($id)->row_array(),
             'judul' => $jdl,
-            'rekomendasi' => $this->ModelPengajuan->where2($jdl)
+            'rekomendasi' => $this->ModelPengajuan->where2($nama,$id)
+            
+            
         ];
         // var_dump($jdl); die;
         
-        // $this->load->view('templates/header1', $data);
-        $this->load->view('test', $data);
-        // $this->load->view('templates/footer');
+        $this->load->view('templates/header1', $data);
+        $this->load->view('destinationview', $data);
+        
+        $this->load->view('templates/footer');
     }
 
     public function destinasi1($id)

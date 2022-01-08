@@ -16,9 +16,9 @@ class ModelPengajuan extends CI_Model
         return $this->db->get_where($table, $where);
     }
 
-    public function where2($nama)
+    public function where2($nama,$id)
     {
-        return $this->db->query("SELECT * FROM wisata where nama_wisata LIKE '%$nama%'  AND status = 'Sudah disetujui'")->result_array;
+        return $this->db->query("SELECT * FROM wisata where nama_wisata LIKE '%$nama%' AND id_wisata NOT LIKE '%$id%'  AND status = 'Sudah disetujui'")->result_array();
     }
 
     public function update($table, $where, $data)
