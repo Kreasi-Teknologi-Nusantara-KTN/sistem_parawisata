@@ -44,11 +44,15 @@ class Destination extends CI_Controller
     {
         $judul = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
         $jdl = implode($judul);
-
+        $na = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
+       
+       $nam = implode($na);
+       $nama = substr($nam,0,5);
         
         $data = [
             'wisata' => $this->ModelPengajuan->join($id)->row_array(),
-            'judul' => $jdl
+            'judul' => $jdl,
+            'rekomendasi' => $this->ModelPengajuan->where2($nama,$id,'Sudah disetujui')
         ];
         $this->load->view('templates/header', $data);
         $this->load->view('destinationview', $data);
