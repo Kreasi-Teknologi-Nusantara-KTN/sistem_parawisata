@@ -39,7 +39,7 @@ $id = $_SESSION['id_pengelola'];
 							<li class="profileku">
 								<div class="d-flex bd-highlight">
 									<div class="img_cont">
-										<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_ku">
+										<img src="https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png" class="rounded-circle user_img_ku">
 									</div>
 									<div class="user_info_ku">
 										<span><?= $_SESSION['nama'] ?></span>
@@ -82,7 +82,7 @@ $id = $_SESSION['id_pengelola'];
 					<div class="card-header msg_head">
 						<div class="d-flex bd-highlight">
 							<div class="img_cont">
-								<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+								<img src="https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png" class="rounded-circle user_img">
 								<span class="online_icon"></span>
 							</div>
 							<div class="user_info">
@@ -199,7 +199,7 @@ $id = $_SESSION['id_pengelola'];
 						} else {
 							html += `<div class="d-flex justify-content-start mb-4">
 							<div class="img_cont_msg">
-								<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+								<img src="https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png" class="rounded-circle user_img_msg">
 							</div>
 							<div class="msg_cotainer">
 								${d.isi}								
@@ -327,7 +327,7 @@ $id = $_SESSION['id_pengelola'];
 					<li class="active coba" data-id=${d.id}>
 								<div class="d-flex bd-highlight ">
 									<div class="img_cont ">
-										<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+										<img src="https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png" class="rounded-circle user_img">
 										<span class="online_icon " ></span>
 									</div>
 									<div class="user_info ">	

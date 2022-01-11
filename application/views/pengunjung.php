@@ -19,13 +19,6 @@
             font-size: 20px;
         }
 
-        img .img-thumbnail {
-            display: block;
-            max-width: 200px;
-            max-height: 200px;
-            width: auto;
-            height: auto;
-
         }
     </style>
     <div class="container" style="padding:5px;">
@@ -38,7 +31,7 @@
                         <div class="card-header">
                             <h5><?= $rk['nama_wisata'] . ', ' . $rk['lokasi'] ?></h5>
                         </div>
-                        <img src="<?= base_url('assets/images/' . $rk['gambar']) ?>" class="img-thumbnail" alt="Belum Ada Gambar">
+                        <img width="280px" height="290px" src="<?= base_url('assets/images/' . $rk['gambar']) ?>"  alt="Belum Ada Gambar">
                         <p>
                             <?= $rk['informasi_wisata'] ?>
                         </p>

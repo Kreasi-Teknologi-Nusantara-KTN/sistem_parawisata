@@ -37,9 +37,8 @@
                             <h3><?= $wst['email'] ?></h3>
                             <h3><?= $wst['alamat'] ?></h3>
                             <?php $url = prep_url($wst['link']) ?>
-                            <button type="button" class="btn btn-block btn-success "><a href="<?= $url; ?>" target="_blank">Live View</a></button>
-                            <?php $url1 = prep_url('https://wa.me/' . $wst['kontak']) ?>
-                            <button type="button" class="btn btn-block btn-success "><a href="<?= $url1; ?>">Chat</a></button>
+                            <button type="button" class="btn btn-block btn-success "><a href="" data-toggle="modal" data-target="#liveView" target="_blank">Live View</a></button>
+
                         </div>
                     </div>
                 </div>
@@ -59,6 +58,7 @@
                             <iframe width="600" height="500" id="gmap_canvas" src="<?= $url ?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                             </iframe>
                             <br>
+                            
                             <style>
                                 .mapouter {
                                     position: relative;
@@ -80,10 +80,66 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+            <!-- Modal tambah data -->
+<div class="modal fade" id="liveView" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="liveView">Live View Wisata</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <div class="live">
+                        <div class="live_canvas">
+                            <?php $url = prep_url($wst['link']) ?>
+                            
+                            <iframe class="responsive-iframe" width="1120" height="500" id="live_canvas" src="<?= $url ?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ><style>
+                            img{widht : 640px; height : 320px;}
+                              </style>
+                            </iframe>
+                            <br>
+                            <style>
+                                /* .live {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 500px;
+                                    width: 1120px;
+                                } */
+                            </style>
+                            <a href="https://www.embedgooglemap.net"></a>
+                            <style>
+                                .live_canvas {
+                                    overflow: hidden;
+                                    background: none !important;
+                                    height: 500px;
+                                    width: 1920px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
             
             
 
         </div>
+        
         <div class="container" style="padding:5px;">
 
           <h3>Rekomendasi Wisata</h3>
@@ -97,7 +153,7 @@
                         <div class="card-header">
                             <h5><?= $rk['nama_wisata'] . ', ' . $rk['lokasi'] ?></h5>
                         </div>
-                        <img src="<?= base_url('assets/images/' . $rk['gambar']) ?>" class="img-thumbnail" alt="Belum Ada Gambar">
+                        <img src="<?= base_url('assets/images/' . $rk['gambar']) ?>" width="280px" height="290px" alt="Belum Ada Gambar">
                         <p>
                             <?= $rk['informasi_wisata'] ?>
                         </p>
@@ -112,3 +168,6 @@
 <?php endforeach; ?>
 
 
+
+</div>
+        

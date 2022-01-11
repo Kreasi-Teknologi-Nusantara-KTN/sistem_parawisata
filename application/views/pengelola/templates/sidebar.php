@@ -45,14 +45,9 @@
                     <span>Pengajuan Wisata</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../chat/menuPengelola">
+                <a class="nav-link" href="<?= base_url('chat/menuPengelola') ?>">
                     <i class="fas fa-comments"></i>
                     <span>Chat</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-video"></i>
-                    <span>Live View</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

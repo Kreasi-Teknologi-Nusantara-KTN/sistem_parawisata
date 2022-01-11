@@ -7,6 +7,17 @@
         return $this->db->get($table)->result_array();
     }
 
+    public function ambil()
+    {
+    //   $this->db->where('id_pengelola', $this->session->id);
+    
+    // return $this->db->get('wisata')->result();
+
+    $this->db->where('id_pengelola', $this->session->userdata('id_pengelola'));
+    
+    return $this->db->get('wisata')->result_array();
+    }
+
     public function add($table, $data)
     {
         return $this->db->insert($table, $data);

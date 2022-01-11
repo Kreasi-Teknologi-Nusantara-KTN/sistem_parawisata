@@ -10,8 +10,11 @@ class Pengelola extends CI_Controller
 
     public function index()
     {
+      $data = [
+        'profile' =>  $this->db->get_where('user', ['id' => $this->session->userdata('id_pengelola')])->row_array()
+    ];
         $this->load->view('pengelola/templates/header');
-        $this->load->view('pengelola/templates/sidebar');
+        $this->load->view('pengelola/templates/sidebar', $data);
         $this->load->view('pengelola/index');
         $this->load->view('pengelola/templates/footer');
     }
@@ -20,10 +23,11 @@ class Pengelola extends CI_Controller
     {
         $data = [
             'judul' => 'Informasi Pariwisata',
-            'info' => $this->ModelPengelola->get('wisata')
+            'info' => $this->ModelPengelola->ambil(),
+            'profile' =>  $this->db->get_where('user', ['id' => $this->session->userdata('id_pengelola')])->row_array()
         ];
         $this->load->view('pengelola/templates/header', $data);
-        $this->load->view('pengelola/templates/sidebar');
+        $this->load->view('pengelola/templates/sidebar', $data);
         $this->load->view('pengelola/inf_parawisata', $data);
         $this->load->view('pengelola/templates/footer');
     }
@@ -35,10 +39,10 @@ class Pengelola extends CI_Controller
             'profile' =>  $this->db->get_where('user', ['id' => $this->session->userdata('id_pengelola')])->row_array()
         ];
 
-        $this->load->view('admin/templates/header');
-        $this->load->view('admin/templates/sidebar');
-        $this->load->view('admin/profile', $data);
-        $this->load->view('admin/templates/footer');
+        $this->load->view('pengelola/templates/header');
+        $this->load->view('pengelola/templates/sidebar', $data);
+        $this->load->view('pengelola/profile', $data);
+        $this->load->view('pengelola/templates/footer');
     }
 
     public function editProfile($id)

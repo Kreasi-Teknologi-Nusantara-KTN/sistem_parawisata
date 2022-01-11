@@ -75,7 +75,7 @@
              </button>
            </div>
            <div class="modal-body">
-             <form action="<?= base_url('Pengajuan/editInfo/' . $inf['id_wisata']) ?>" method="POST">
+             <form action="<?= base_url('Pengajuan/editInfo/' . $inf1['id_wisata']) ?>" method="POST">
                <div class="card-body">
                  <div class="form-group">
                    <label for="namaWisata">Nama Wisata</label>

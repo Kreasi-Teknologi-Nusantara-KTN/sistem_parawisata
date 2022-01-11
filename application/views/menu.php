@@ -33,6 +33,8 @@ $nama = $_SESSION['nama'];
 		font-size: large;
 		font: message-box;
 		font-weight: bolder;
+    margin : auto;
+    margin-top : 10px;
 	}
 </style>
 
@@ -50,7 +52,7 @@ $nama = $_SESSION['nama'];
 							<li class="profileku">
 								<div class="d-flex bd-highlight">
 									<div class="img_cont">
-										<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_ku">
+										<img src="https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png" class="rounded-circle user_img_ku">
 									</div>
 									<div class="user_info_ku">
 										<span><?= $_SESSION['nama'] ?></span>
@@ -74,7 +76,7 @@ $nama = $_SESSION['nama'];
 							<li class="active">
 								<div class="d-flex bd-highlight">
 									<div class="img_cont">
-										<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+										<img src="https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png" class="rounded-circle user_img">
 										<span class="online_icon"></span>
 									</div>
 									<div class="user_info">
@@ -96,13 +98,16 @@ $nama = $_SESSION['nama'];
 
 					</div>
 					<div class="card-body msg_card_body" id="letakpesan">
-						<div class="d-flex justify-content-start mb-4">
-							<div class="text-center">
-								<img src="https://sintesa.net/wp-content/uploads/2019/05/livechat.png" class="rounded-circle user_img_msg">
+          <div class="row">
+            <img style="margin : auto;" src="https://sintesa.net/wp-content/uploads/2019/05/livechat.png" class="rounded-circle user_img_msg">
+            </div>
+						
+								<div class="row">
 								<br>
-								<p class="text-center" id="textnya">Hay, <?= $nama ?>, <br>Ayo Chat temanmu Sekarang !, </p>
+                <br>
+								<p  id="textnya">Hay, <?= $nama ?>!</p>
 							</div>
-						</div>
+              
 
 					</div>
 
@@ -178,7 +183,7 @@ $nama = $_SESSION['nama'];
 						<li class="active coba" data-id="${d.id}">
 								<div class="d-flex bd-highlight ">
 									<div class="img_cont ">
-										<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+										<img src="https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png" class="rounded-circle user_img">
 										<span class="online_icon " ></span>
 									</div>
 									<div class="user_info ">	
