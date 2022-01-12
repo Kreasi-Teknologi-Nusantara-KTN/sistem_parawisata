@@ -60,7 +60,7 @@ $nama = $_SESSION['nama'];
 									
 									<div class="user_info_ku iconya">
 										<span class="">
-											<a href="../pengelola"><i class="fas fa-sign-out-alt" style="
+											<a href="../pengelola"><i class="fas fa-arrow-left" style="
 											color: aliceblue;
 											margin-top: 10px;
 										"></i></a>
