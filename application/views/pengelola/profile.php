@@ -24,7 +24,7 @@
                         </div>
                         <label for="jenkel">Jenkel</label>
                         <select class="form-control" name="jenkel">
-                            <option value="<?= $p['jenkel'] ?> ?>">-- <?= $p['jenkel'] ?> --</option>
+                            <option value="<?= $p['jenkel'] ?>">-- <?= $p['jenkel'] ?> --</option>
                             <option>Laki-laki</option>
                             <option>Perempuan</option>
                         </select>
@@ -32,6 +32,10 @@
                         <div class="form-group">
                             <label for="alamat">Alamat :</label>
                             <input type="text" class="form-control" name="alamat" placeholder="" value="<?= $p['alamat'] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="kontak">Kontak :</label>
+                            <input type="text" class="form-control" name="kontak" placeholder="" value="<?= $p['kontak'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="password">Password :</label>

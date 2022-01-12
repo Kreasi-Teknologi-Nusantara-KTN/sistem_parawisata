@@ -298,6 +298,10 @@ class Admin extends CI_Controller
             $this->load->view('admin/templates/sidebar');
             $this->load->view('admin/pengunjung', $data);
             $this->load->view('admin/templates/footer');
+            $this->session->set_flashdata(
+              'message',
+              '<div class="alert alert-danger" role="alert">Akun gagal ditambahkan!</div>'
+          );
         } else {
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama')),
@@ -316,7 +320,7 @@ class Admin extends CI_Controller
             $this->db->insert('user', $data);
             $this->session->set_flashdata(
                 'message',
-                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Login</div>'
+                '<div class="alert alert-success" role="alert">Akun berhasil ditambahakan</div>'
             );
             redirect('Admin/Pengunjung');
         }
@@ -365,6 +369,10 @@ class Admin extends CI_Controller
           $this->load->view('admin/templates/sidebar');
           $this->load->view('admin/pengunjung', $data);
           $this->load->view('admin/templates/footer');
+          $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-danger" role="alert">Akun gagal diubah!</div>'
+        );
         } else {
             $data = [
                 'id' => htmlspecialchars($this->input->post('id')),
@@ -385,7 +393,7 @@ class Admin extends CI_Controller
             $res = $this->ModelPengelola->update('user', $data, $where);
             $this->session->set_flashdata(
                 'message',
-                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Login</div>'
+                '<div class="alert alert-success" role="alert">Akun berhasil diubah</div>'
             );
             redirect('Admin/Pengunjung');
         }
@@ -443,6 +451,10 @@ class Admin extends CI_Controller
             $this->load->view('admin/templates/sidebar');
             $this->load->view('admin/pengelola', $data);
             $this->load->view('admin/templates/footer');
+            $this->session->set_flashdata(
+              'message',
+              '<div class="alert alert-danger" role="alert">Akun gagal ditambahkan!</div>'
+          );
         } else {
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama')),
@@ -461,7 +473,7 @@ class Admin extends CI_Controller
             $this->db->insert('user', $data);
             $this->session->set_flashdata(
                 'message',
-                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Login</div>'
+                '<div class="alert alert-success" role="alert">Akun berhasil ditambahkan</div>'
             );
             redirect('Admin/Pengelola');
         }
@@ -500,6 +512,10 @@ class Admin extends CI_Controller
           $this->load->view('admin/templates/sidebar');
           $this->load->view('admin/pengelola', $data);
           $this->load->view('admin/templates/footer');
+          $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-danger" role="alert">Akun gagal diubah!</div>'
+        );
         } else {
             $data = [
                 'id' => htmlspecialchars($this->input->post('id')),
@@ -520,7 +536,7 @@ class Admin extends CI_Controller
             $res = $this->ModelPengelola->update('user', $data, $where);
             $this->session->set_flashdata(
                 'message',
-                '<div class="alert alert-success" role="alert">Selamat Akun Anda Sudah Terdaftar, Silahkan Login</div>'
+                '<div class="alert alert-success" role="alert">Akun berhasil diubah</div>'
             );
             redirect('Admin/Pengelola');
         }
@@ -553,8 +569,8 @@ class Admin extends CI_Controller
         $config = [
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'inwananwar9b@gmail.com',
-            'smtp_pass' => 'Politeknik99',
+            'smtp_user' => 'email',
+            'smtp_pass' => 'pasword_email',
             'smtp_port' => '465',
             'mailtype' => 'html',
             'charset' => 'utf-8',
@@ -599,19 +615,24 @@ class Admin extends CI_Controller
     }
 
     public function editProfile($id)
-    {
-        $id_user = ['id' => $id];
-
-        $nama = $this->input->post('nama');
-        $email = $this->input->post('email');
-        $jenkel = $this->input->post('jenkel');
-        $alamat = $this->input->post('alamat');
-
-        $data = [
-            'nama' => $nama,
-            'email' => $email,
-            'jenkel' => $jenkel,
-            'alamat' => $alamat
+    { 
+      $id_user = ['id' => $id];
+      $nama = $this->input->post('nama');
+      $email = $this->input->post('email');
+      $jenkel = $this->input->post('jenkel');
+      $alamat = $this->input->post('alamat');
+      $kontak = $this->input->post('kontak');
+      
+      $data = [
+          'nama' => $nama,
+          'email' => $email,
+          'jenkel' => $jenkel,
+          'alamat' => $alamat,
+          'kontak' => $kontak,
+          'password' => password_hash(
+            $this->input->post('password'),
+            PASSWORD_DEFAULT
+        ),
         ];
         $this->ModelAkun->update('user', $data, $id_user);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">

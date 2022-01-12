@@ -48,21 +48,27 @@ class Pengelola extends CI_Controller
     public function editProfile($id)
     {
         $id_user = ['id' => $id];
-        var_dump($id_user);
-        die;
+        
         $nama = $this->input->post('nama');
         $email = $this->input->post('email');
         $jenkel = $this->input->post('jenkel');
         $alamat = $this->input->post('alamat');
+        $kontak = $this->input->post('kontak');
+        
         $data = [
             'nama' => $nama,
             'email' => $email,
             'jenkel' => $jenkel,
-            'alamat' => $alamat
+            'alamat' => $alamat,
+            'kontak' => $kontak,
+            'password' => password_hash(
+              $this->input->post('password'),
+              PASSWORD_DEFAULT
+          ),
         ];
         $this->ModelAkun->update('user', $data, $id_user);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Berhasil Ubah Profil!</div>');
-        return redirect('Admin');
+        return redirect('Pengelola');
     }
 }

@@ -60,21 +60,21 @@ class Login extends CI_Controller
                         'message',
                         '<div class="alert alert-danger" role="alert">Password salah</div>'
                     );
-                    redirect('login');
+                    redirect('login/index');
                 }
             } else {
                 $this->session->set_flashdata(
                     'message',
                     '<div class="alert alert-danger" role="alert">Email Belum di aktivasi</div>'
                 );
-                redirect('login');
+                redirect('login/index');
             }
         } else {
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger" role="alert">Emali Belum Terdaftar, Silahkan daftar terlebih dahulu</div>'
             );
-            redirect('login');
+            redirect('login/index');
         }
     }
 

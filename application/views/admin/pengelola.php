@@ -28,7 +28,7 @@
               $no = 1;
 
               foreach ($peng as $pen) :
-                $id = str_replace(['=', '+', '/'], ['-', '_', '~'], $this->encryption->encrypt($pen['id']));
+                
               ?>
 
                <tr>
@@ -229,7 +229,7 @@
            </div>
            <div class="modal-footer">
              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-             <button type="Submit" onclick="deleteConfirm('<?= base_url('Admin/hapusPengelola' . $id) ?>')" class="btn btn-danger">Hapus</button>
+             <button type="Submit" onclick="deleteConfirm('<?= base_url('Admin/hapusPengelola' . $pen['id']) ?>')" class="btn btn-danger">Hapus</button>
            </div>
        </div>
      </div>

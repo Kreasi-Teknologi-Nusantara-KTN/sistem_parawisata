@@ -35,7 +35,7 @@
                              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                  Jumlah Pengelola</div>
                              <?php
-                                $query = $this->db->query("SELECT * FROM user WHERE role > 1")->result_array();
+                                $query = $this->db->query("SELECT * FROM user WHERE role = 2")->result_array();
                                 $jml = count($query);
                                 ?>
                              <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jml; ?></div>
