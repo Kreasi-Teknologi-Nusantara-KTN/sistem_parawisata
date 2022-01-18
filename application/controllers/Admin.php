@@ -639,4 +639,61 @@ class Admin extends CI_Controller
             Berhasil Ubah Profil!</div>');
         return redirect('Admin');
     }
+
+    public function homepage()
+    {
+        $data = [
+            'judul' => 'Home',
+            'rekomendasi' => $this->db->query("SELECT MAX(point_rekomendasi),id_wisata, nama_wisata,lokasi, informasi_wisata, gambar FROM wisata GROUP BY nama_wisata ORDER BY point_rekomendasi DESC LIMIT 3 ")->result_array()
+        ];
+        $this->load->view('admin/templates/header1', $data);
+        $this->load->view('admin/homepage');
+        $this->load->view('templates/footer');
+    }
+    public function recommended($id)
+    {
+        $judul = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
+        $jdl = implode($judul);
+        $na = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
+       
+       $nam = implode($na);
+       $nama = substr($nam,0,5);
+        
+        $data = [
+            'wisata' => $this->ModelPengajuan->join($id)->row_array(),
+            'judul' => $jdl,
+            'rekomendasi' => $this->ModelPengajuan->where2($nama,$id,'Sudah disetujui')
+        ];
+        $this->load->view('admin/templates/header1', $data);
+        $this->load->view('admin/destinationView', $data);
+        $this->load->view('templates/footer');
+    }
+    public function destination()
+    {
+        $data = [
+            'judul' => 'Destinasi',
+            'wisata' => $this->ModelPengajuan->where('wisata', ['status' => 'Sudah disetujui'])->result_array()
+        ];
+        $this->load->view('admin/templates/header1', $data);
+        $this->load->view('admin/destination', $data);
+        $this->load->view('templates/footer');
+    }
+    public function destinasiView($id)
+    {
+        $judul = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
+        $jdl = implode($judul);
+        $na = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
+       
+       $nam = implode($na);
+       $nama = substr($nam,0,5);
+        
+        $data = [
+            'wisata' => $this->ModelPengajuan->join($id)->row_array(),
+            'judul' => $jdl,
+            'rekomendasi' => $this->ModelPengajuan->where2($nama,$id,'Sudah disetujui')
+        ];
+        $this->load->view('admin/templates/header1', $data);
+        $this->load->view('admin/destinationView', $data);
+        $this->load->view('templates/footer');
+    }
 }

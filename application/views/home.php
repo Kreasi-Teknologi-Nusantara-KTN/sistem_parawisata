@@ -18,7 +18,10 @@
         h3 {
             font-size: 20px;
         }
-
+        img {
+          width : 100%;
+          height : auto;
+        }
        
 
         }

@@ -4,7 +4,7 @@
     <div class="content">
         <h3>HOLIDAY FOR HOLIYAY</h3>
         <p>Its time for holiday, with better day</p>
-        <a href="<?= base_url() ?>destination/pengunjung" class="btn">get started</a>
+        <a href="<?= base_url() ?>Pengelola/destination" class="btn">get started</a>
     </div>
     <div class="image">
         <img src="<?= base_url('assets/images/webview.svg') ?>" alt="">
@@ -22,6 +22,8 @@
           width : 100%;
           height : auto;
         }
+       
+
         }
     </style>
     <div class="container" style="padding:5px;">
@@ -38,7 +40,7 @@
                         <p>
                             <?= $rk['informasi_wisata'] ?>
                         </p>
-                        <a href="<?= base_url('Destination/recommended1/' . $rk['id_wisata']); ?>" class="btn">Visit</a>
+                        <a href="<?= base_url('Pengelola/recommended/' . $rk['id_wisata']); ?>" class="btn">Visit</a>
                     </div>
                 </div>
             <?php endforeach; ?>

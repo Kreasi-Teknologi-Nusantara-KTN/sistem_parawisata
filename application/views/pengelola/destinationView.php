@@ -38,8 +38,6 @@
                             <h3><?= $wst['alamat'] ?></h3>
                             <?php $url = prep_url($wst['link']) ?>
                             <button type="button" class="btn btn-block btn-success "><a href="" data-toggle="modal" data-target="#liveView" target="_blank">Live View</a></button>
-                            
-                            
 
                         </div>
                     </div>
@@ -92,8 +90,7 @@
                 </div>
             </div>
 
-            
-       
+
 
 
             <!-- Modal tambah data -->
@@ -146,7 +143,7 @@
 </div>
 
 
-           
+            
             
             
 
@@ -178,7 +175,7 @@
                         <p>
                             <?= $rk['informasi_wisata'] ?>
                         </p>
-                        <a href="<?= base_url('Destination/recommended1/' . $rk['id_wisata']); ?>" class="btn">Visit</a>
+                        <a href="<?= base_url('Pengelola/recommended/' . $rk['id_wisata']); ?>" class="btn">Visit</a>
                     </div>
                 </div>
             <?php endforeach; ?>

@@ -1,3 +1,4 @@
+
 <div class="container">
 
         <!-- Outer Row -->
@@ -6,7 +7,19 @@
             <div class="col-xl-10 col-lg-12 col-mx-9">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
+                  
                     <div class="card-body p-0">
+                    <header>
+            <a href="home.html" class="logo">HOLI<span>YAY </span></a>
+
+            
+
+            <nav class="navbar">
+                <a href="<?= base_url() ?>">home</a>
+                <a href="<?= base_url() ?>destination">destination</a>
+                
+            </nav>
+        </header>
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>

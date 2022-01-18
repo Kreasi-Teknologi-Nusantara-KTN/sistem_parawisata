@@ -56,8 +56,7 @@ $nama = $_SESSION['nama'];
 									</div>
 									<div class="user_info_ku">
 										<span><?= $_SESSION['nama'] ?></span>
-									</div>
-									
+									</div>								
 									<div class="user_info_ku iconya">
 										<span class="">
 											<a href="../pengelola"><i class="fas fa-arrow-left" style="

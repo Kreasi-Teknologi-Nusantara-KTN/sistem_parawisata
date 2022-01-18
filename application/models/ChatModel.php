@@ -58,6 +58,9 @@ public function getData($u,$p)
 		return $sql = $this->db->get()->result();
 		# code...
 	}
+
+  
+
   public function GetAllOrangPengunjung()
 	{
 
