@@ -148,6 +148,21 @@ class Chat extends CI_Controller
 
 		# code...
 	}
+
+  public function GetSatuOrang()
+	{
+    
+    
+     $noo =  $this->uri->segment(3);   
+		$id = $this->input->post('id');
+		$data = $this->ChatModel->GetSatuOrang($noo);
+
+		echo json_encode(array(
+			'data' => $data
+		));
+
+		# code...
+	}
   public function GetAllPengunjung()
 	{
 		$id = $this->input->post('id');

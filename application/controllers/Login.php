@@ -49,9 +49,9 @@ class Login extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($user['role'] == 1) {
-                        redirect('Admin');
+                        redirect('Admin/homepage');
                     } elseif ($user['role'] == 2) {
-                        redirect('Pengelola');
+                        redirect('Pengelola/homepage');
                     }elseif ($user['role'] == 3) {
                       redirect('Home/pengunjung');
                   } else {
@@ -140,6 +140,7 @@ class Login extends CI_Controller
     {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role');
+        $this->session->sess_destroy(); 
 
         $this->session->set_flashdata(
             'message',

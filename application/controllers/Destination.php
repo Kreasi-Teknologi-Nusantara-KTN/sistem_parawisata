@@ -25,7 +25,7 @@ class Destination extends CI_Controller
         $jdl = implode($judul);
         
         $na = $this->db->query("SELECT nama_wisata FROM wisata WHERE id_wisata =$id")->row_array();
-       
+        
        $nam = implode($na);
        $nama = substr($nam,0,5);
         

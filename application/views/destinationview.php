@@ -36,8 +36,17 @@
                             <h2><strong><?= $wst['nama'] ?></strong></h2>
                             <h3><?= $wst['email'] ?></h3>
                             <h3><?= $wst['alamat'] ?></h3>
+                            
                             <?php $url = prep_url($wst['link']) ?>
                             <button type="button" class="btn btn-block btn-success "><a href="" data-toggle="modal" data-target="#liveView" target="_blank">Live View</a></button>
+                            <?php
+                              if ($this->session->userdata('id_pengelola')==0){
+                              ?>
+                            
+                            <?php }else{?>
+                              <button type="button" class="btn btn-block btn-success "><a href="<?= base_url('chat/menu/'.$wst['id'])?>" >Chat</a></button>
+                              
+                            <?php } ?>
                             
                             
 

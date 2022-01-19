@@ -10,6 +10,8 @@ $this->load->view('style');
 $id = $_SESSION['id_pengelola'];
 $nama = $_SESSION['nama'];
 // var_dump($_SESSION);die;
+$no =  $this->uri->segment(3);
+        
 ?>
 
 <head>
@@ -38,7 +40,7 @@ $nama = $_SESSION['nama'];
 	}
 </style>
 
-<body>
+<body >
 	<div class="container-fluid h-100">
 		<div class="row justify-content-center h-100">
 			<div class="col-md-4 col-xl-3 chat">
@@ -51,6 +53,12 @@ $nama = $_SESSION['nama'];
 						<ui class="contacts">
 							<li class="profileku">
 								<div class="d-flex bd-highlight">
+                <a href="../../Home/pengunjung">
+                <i class="fas fa-arrow-left" style="
+											color: aliceblue;
+											margin-top: 10px;
+                      margin-right: 5px;
+										"></i></a>
 									<div class="img_cont">
 										<img src="https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png" class="rounded-circle user_img_ku">
 									</div>
@@ -60,10 +68,7 @@ $nama = $_SESSION['nama'];
 									
 									<div class="user_info_ku iconya">
 										<span class="">
-											<a href="../Home/pengunjung"><i class="fas fa-arrow-left" style="
-											color: aliceblue;
-											margin-top: 10px;
-										"></i></a>
+											
 										</span>
 
 									</div>
@@ -158,7 +163,8 @@ $nama = $_SESSION['nama'];
 		function orang() {
 			$.ajax({
 				type: "post",
-				url: "<?= base_url() ?>Chat/GetAllOrang",
+        
+				url: "<?php echo base_url(); ?>Chat/GetSatuOrang/<?php echo $no;?>",
 				data: {
 					id: '<?= $id ?>'
 				},

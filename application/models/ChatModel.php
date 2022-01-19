@@ -59,6 +59,15 @@ public function getData($u,$p)
 		# code...
 	}
 
+  public function GetSatuOrang($noo)
+	{
+
+		$this->db->from('user');
+		$this->db->where('id', $noo);
+		return $sql = $this->db->get()->result();
+		# code...
+	}
+
   
 
   public function GetAllOrangPengunjung()

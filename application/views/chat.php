@@ -8,7 +8,7 @@
 <?php
 $this->load->view('style');
 $id = $_SESSION['id_pengelola'];
-
+$nama = $_SESSION['nama'];
 // var_dump($_SESSION);die;
 // var_dump($_SESSION['id']);die;
 ?>
@@ -38,6 +38,11 @@ $id = $_SESSION['id_pengelola'];
 						<ui class="contacts">
 							<li class="profileku">
 								<div class="d-flex bd-highlight">
+                <a href="../Home/pengunjung"><i class="fas fa-arrow-left" style="
+											color: aliceblue;
+											margin-top: 10px;
+                      margin-right: 5px;
+										"></i></a>
 									<div class="img_cont">
 										<img src="https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png" class="rounded-circle user_img_ku">
 									</div>
@@ -47,10 +52,7 @@ $id = $_SESSION['id_pengelola'];
 									
 									<div class="user_info_ku iconya">
 										<span class="">
-                    <a href="../Home/pengunjung"><i class="fas fa-arrow-left" style="
-											color: aliceblue;
-											margin-top: 10px;
-										"></i></a>
+                    
 										</span>
 
 									</div>
@@ -302,7 +304,7 @@ $id = $_SESSION['id_pengelola'];
 		function orang() {
 			$.ajax({
 				type: "post",
-				url: "<?= base_url() ?>Chat/GetAllOrang",
+				url: "<?= base_url() ?>Chat/GetSatuOrang",
 				data: {
 					id: '<?= $id ?>'
 				},

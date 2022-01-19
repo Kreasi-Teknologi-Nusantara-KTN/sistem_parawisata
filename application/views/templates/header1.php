@@ -16,6 +16,9 @@
                                         '/assets/css/style.css'
                                     ); ?>">
 
+  <!-- ajax -->
+  
+
 </head>
 
 <body>
@@ -28,7 +31,7 @@
             <nav class="navbar">
                 <a href="<?= base_url() ?>Home/pengunjung">home</a>
                 <a href="<?= base_url() ?>destination/pengunjung">destination</a>
-                <a href="<?= base_url() ?>chat/menu">chat</a>
+                
                 <ul class="navbar-nav ml-auto">
                         <!-- place here if u wanna user alert icon or message icon -->
                         <div class="topbar-divider d-none d-sm-block"></div>
