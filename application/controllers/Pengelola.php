@@ -10,7 +10,38 @@ class Pengelola extends CI_Controller
 
     public function index()
     {
+    
+      $id_lawan = $this->session->userdata('id_pengelola');
+      $id = $this->session->userdata('id_pengelola');
+		
+        
+        $status = $this->input->post('status');
+        
+        $dataa = [
+            
+            'status' =>1
+        ];
+        $where = array('id_lawan' => $id);
+        $res = $this->ChatModel->update('pesan', $dataa, $where);
       $data = [
+        'pesan' =>  $this->db->query("select isi,waktu,nama_user,status from pesan where id_lawan = $id_lawan and status = 0")->result_array(),
+        'pesan1' =>  $this->db->query("select * from pesan where id_lawan = $id_lawan and status = 0")->result_array(),
+        'profile' =>  $this->db->get_where('user', ['id' => $this->session->userdata('id_pengelola')])->row_array()
+    ];
+        $this->load->view('pengelola/templates/header');
+        $this->load->view('pengelola/templates/sidebar', $data);
+        $this->load->view('pengelola/index');
+        $this->load->view('pengelola/templates/footer');
+    }
+
+    public function dashboard()
+    {
+    
+      $id_lawan = $this->session->userdata('id_pengelola');
+      
+      $data = [
+        'pesan' =>  $this->db->query("select isi,waktu,nama_user,status from pesan where id_lawan = $id_lawan and status = 0")->result_array(),
+        'pesan1' =>  $this->db->query("select * from pesan where id_lawan = $id_lawan and status = 0")->result_array(),
         'profile' =>  $this->db->get_where('user', ['id' => $this->session->userdata('id_pengelola')])->row_array()
     ];
         $this->load->view('pengelola/templates/header');
@@ -20,8 +51,10 @@ class Pengelola extends CI_Controller
     }
 
     public function inf_parawisata()
-    {
+    {   
+      $id_lawan = $this->session->userdata('id_pengelola');
         $data = [
+          'pesan' =>  $this->db->query("select isi,waktu,nama_user,status from pesan where id_lawan = $id_lawan and status = 0")->result_array(),
             'judul' => 'Informasi Pariwisata',
             'info' => $this->ModelPengelola->ambil(),
             'profile' =>  $this->db->get_where('user', ['id' => $this->session->userdata('id_pengelola')])->row_array()

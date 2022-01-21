@@ -59,6 +59,11 @@ public function getData($u,$p)
 		# code...
 	}
 
+  public function update($table,$where,$data){		
+    $res = $this->db->update($table,$where,$data);
+    return $res;
+ }
+
   public function GetSatuOrang($noo)
 	{
 

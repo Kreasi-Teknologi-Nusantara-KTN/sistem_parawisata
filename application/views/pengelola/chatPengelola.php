@@ -37,7 +37,18 @@ $id = $_SESSION['id_pengelola'];
 					<div class="card-body contacts_body">
 						<ui class="contacts">
 							<li class="profileku">
+                
 								<div class="d-flex bd-highlight">
+                <div class="user_info_ku iconya">
+										<span class="">
+                    <a href="../../Pengelola"><i class="fas fa-arrow-left" style="
+											color: aliceblue;
+											margin-top: 10px;
+                      margin-right: 5px;
+										"></i></a>
+										</span>
+
+									</div>
 									<div class="img_cont">
 										<img src="https://icons-for-free.com/iconfiles/png/512/business+costume+male+man+office+user+icon-1320196264882354682.png" class="rounded-circle user_img_ku">
 									</div>
@@ -45,15 +56,7 @@ $id = $_SESSION['id_pengelola'];
 										<span><?= $_SESSION['nama'] ?></span>
 									</div>
 									
-									<div class="user_info_ku iconya">
-										<span class="">
-                    <a href="../../Pengelola"><i class="fas fa-arrow-left" style="
-											color: aliceblue;
-											margin-top: 10px;
-										"></i></a>
-										</span>
-
-									</div>
+									
 								</div>
 							</li>
 						</ui>

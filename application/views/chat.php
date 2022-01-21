@@ -216,6 +216,7 @@ $nama = $_SESSION['nama'];
 		$('.send_btn').click(function(e) {
 			var pesan = $('.type_msg').val();
 			var id_user = '<?= $id ?>'
+      var nama_user = '<?= $nama ?>'
 			var id_lawan = '<?= $data->id ?>';
 			if (pesan != "") {
 				$.ajax({
@@ -224,6 +225,7 @@ $nama = $_SESSION['nama'];
 					data: {
             
 						id_user,
+            nama_user,
 						id_lawan,
 						pesan
 					},

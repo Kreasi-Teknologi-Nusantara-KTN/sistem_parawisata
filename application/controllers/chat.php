@@ -62,6 +62,7 @@ class Chat extends CI_Controller
 		// var_dump($now);die;
 		$pesan = $this->input->post('pesan');
 		$id = $this->input->post('id_pesan');
+    $nama_user = $this->input->post('nama_user');
     $id_user = $this->input->post('id_user');
 		$id_lawan = $this->input->post('id_lawan');
 
@@ -70,6 +71,7 @@ class Chat extends CI_Controller
 		$in = array(
 			'id_pesan' => $id,
       'id_user' => $id_user,
+      'nama_user' => $nama_user,
 			'id_lawan' => $id_lawan,
 			'isi' => $pesan,
 			'waktu' => $now,
@@ -131,8 +133,19 @@ class Chat extends CI_Controller
 
   public function menuPengelola()
 	{
+    $id = $this->session->userdata('id_pengelola');
 		
-				$this->load->view('pengelola/menuPengelola');
+        
+        $status = $this->input->post('status');
+        
+        $data = [
+            
+            'status' => 1
+        ];
+        $where = array('id_lawan' => $id);
+        $res = $this->ChatModel->update('pesan', $data, $where);
+        $this->load->view('pengelola/menuPengelola');
+        
 			
 		
 		# code...

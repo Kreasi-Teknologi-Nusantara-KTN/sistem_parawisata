@@ -28,7 +28,7 @@
             <nav class="navbar">
                 <a href="<?= base_url() ?>pengelola/homepage">home</a>
                 <a href="<?= base_url() ?>pengelola/destination">destination</a>
-                <a href="<?= base_url('chat/menuPengelola') ?>">chat</a>
+                
                 <ul class="navbar-nav ml-auto">
                         <!-- place here if u wanna user alert icon or message icon -->
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -47,7 +47,7 @@
                                     Profile
                                 </a>
                                 <a class="dropdown-item" href="<?= base_url(
-                                                                    'pengelola'
+                                                                    'pengelola/dashboard'
                                                                 ) ?>">
                                     <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                                     dashboard
